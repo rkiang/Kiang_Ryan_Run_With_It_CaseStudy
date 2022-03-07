@@ -18,3 +18,5 @@
 - As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.
 - As a user, I want to name/rename my goals, so I can understand my own submissions to my liking.
 - As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.
+- As a user, I want a personal account page, so I may edit my username and/or password credentials.
+- As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.
