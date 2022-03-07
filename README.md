@@ -12,3 +12,9 @@
 - As a user, I want to view a community page with rating system and sort by too, so I may look at top rated submissions over time.
 - As a user, I want to be able to rate other user's tips and exercise inputs, so I may submit my opinion. 
 - As a user, I want to add/edit/delete body weight submissions, so I may keep a log of my weight goals.
+- As a user, I want to add community exercises, so I may quickly add them to my goal or past workouts.
+- As a user, I want to mark goals 'Complete' when achieved, so I can remove the goal as inactive.
+- As a user, I want to edit goals, so I can change parameters if they were initially not ideal.
+- As a user, I want to have a cancel/confirm button before submission, so I don't have delete/edit the submission afterwards.
+- As a user, I want to name/rename my goals, so I can understand my own submissions to my liking.
+- As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.
