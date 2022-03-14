@@ -20,3 +20,7 @@
 - As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.
 - As a user, I want a personal account page, so I may edit my username and/or password credentials.
 - As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.
+- As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
+- As an Admin user, I want to be able to remove/delete posts in community page, so I can keep the page maintained and less cluttered.
+- As an Admin user, I want to modify users' account access rights, so I may create "moderator" accounts to manage the community page.
+
