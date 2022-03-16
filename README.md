@@ -22,5 +22,20 @@
 - As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.
 - As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
 - As an Admin user, I want to be able to remove/delete posts in community page, so I can keep the page maintained and less cluttered.
-- As an Admin user, I want to modify users' account access rights, so I may create "moderator" accounts to manage the community page.
+- As an Admin user, I want to view and modify users' account access rights, so I may create "moderator" accounts to manage the community page.
+- As a moderator user, I want edit options on the community page, so I may maintain the page.
+- As a user, I want to export workout days to create events in my Google Calendar, so I may have my schedule with my workout plan.
+- 
 
+### DB Tables
+#### User Account Table
+| userId<br/>Integer | userName<br/>String | password<br/>String | accessLevel<br/>String |
+|--------------------|---------------------|---------------------|------------------------|
+| 1                  | appOwner            | #hash               | admin                  |
+| 2                  | moderator           | #hash               | moderator              |
+ | 3                  | user1               | #hash               | basic                  |
+
+#### User's personal exercise page
+| userId | exerciseName<br/>String | exerciseType<br/>String | completionStatus<br/>String | sets<br/>Integer | reps<br/>Integer | duration<br/>Timestamp | sharedStatus<br/>String |
+|--------|-------------------------|-------------------------|-----------------------------|------------------|------------------|------------------------|-------------------------|
+| 1      | squats                  | Weight Lifting          | Incomplete                  | 3                | 8                | null                   | no                      |
