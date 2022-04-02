@@ -1,17 +1,31 @@
 package com.optum.runwithitapp.Models;
 
-public class users {
-    private int userId;
-    private String userName;
-    private String password;
-    private String accessLevel;
 
-    public int getUserId() {
-        return userId;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
+public class Users {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userId", length = 50, nullable = false)
+    private long id;
+
+    @Column(name="username", length = 50, nullable = false)
+    private String userName;
+
+    @Column(name = "password", length = 50, nullable = false)
+    private String password;
+
+    @Column(name = "access_level")
+    private String accessLevel = "basic";
+
+    public long getUserId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserId(long userId) {
+        this.id = userId;
     }
 
     public String getUserName() {
