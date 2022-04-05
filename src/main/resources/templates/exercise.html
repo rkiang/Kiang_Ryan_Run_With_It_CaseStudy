@@ -13,34 +13,42 @@
     <script th:src="@{js/script.js}" src="../static/js/script.js"></script>
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
-            rel="stylesheet"/>
+          rel="stylesheet"/>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
 </head>
 <body id="body-pd">
 <header class="header" id="header">
-    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
+    <img th:src="@{assets/Run With It-logos_black.png}" src="../static/assets/Run With It-logos_black.png" id="logo"
+         alt="Run With It">
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
-        <div> <a href="#" class="nav_logo">
+        <div><a href="#" class="nav_logo">
             <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Menu</span> </a>
             <div class="nav_list">
-                <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Home</span> </a>
+                <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span
+                        class="nav_name">Home</span> </a>
                 <!--                    <a href="create" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create Account</span> </a>-->
-                <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Workouts</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Goals</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Exercises</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Settings</span> </a>
+                <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                        class="nav_name">Workouts</span> </a>
+                <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                        class="nav_name">Goals</span> </a>
+                <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                        class="nav_name">Exercises</span> </a>
+                <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Settings</span>
+                </a>
             </div>
-        </div> <a href="#" class="nav_link">
-        <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
+        </div>
+        <a href="#" class="nav_link">
+            <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
     </nav>
 </div>
 <!--Container Main start-->
 <div class="height-100 bg-light">
-<!--    Main Components-->
-    <img th:src="@{assets/Run With It-logos_black.png}" src="../static/assets/Run With It-logos_black.png" id="logo" alt="Run With It">
+    <!--    Main Components-->
+
     <!-- Tab links -->
     <div class="tab">
         <button class="tablinks" onclick="openTab(event, 'Workouts')">Workouts</button>
@@ -51,16 +59,17 @@
     <!-- Tab content -->
     <div id="Workouts" class="tabcontent">
         <h3>Workouts</h3>
-<!--        <p>London is the capital city of England.</p>-->
+        <!--        <p>London is the capital city of England.</p>-->
     </div>
 
     <div id="Goals" class="tabcontent">
         <h3>Goals</h3>
-<!--        <p>Paris is the capital of France.</p>-->
+        <!--        <p>Paris is the capital of France.</p>-->
     </div>
 
     <div id="Exercises" class="tabcontent">
         <!-- Button trigger modal -->
+
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add Exercise
         </button>
@@ -74,35 +83,78 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" th:action="@{/createNewExercise}" th:object="${exercise}"  method="POST">
+                        <form action="#" th:action="@{/createNewExercise}" th:object="${exercise}" method="POST">
                             <div class="form-floating">
-                                <input field="*{exerciseName}" name="exerciseName"type="text" class="form-control" id="floatingInput" placeholder="Name">
+                                <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
+                                       id="floatingInput" placeholder="Name">
                                 <label for="floatingInput">Name</label>
                             </div>
                             <div class="form-floating">
-                                <select id="floatingType" class="form-select" aria-label="Default select example"field="*{exerciseType}" name="exerciseType" placeholder="Type">
-                                    <option value="cardio">Cardio</option>
-                                    <option value="weights">Weights</option>
+                                <select id="floatingType" class="form-select" aria-label="Default select example"
+                                        field="*{exerciseType}" name="exerciseType" placeholder="Type">
+                                    <option value="Cardio">Cardio</option>
+                                    <option value="Weights">Weights</option>
                                 </select>
-<!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
+                                <!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
                                 <label for="floatingType">Type</label>
                             </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Create</button>
-                    </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
                         </form>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <table class="table align-middle mb-0 bg-white">
+            <thead class="bg-light">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Add to Workout</th>
+                <th>Share</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ex : ${listExercises}">
+                <td th:text="${ex.exerciseName}">
+                    <div class="d-flex align-items-center">
+                        <div class="ms-3">
+                        </div>
+                    </div>
+                </td>
+                <td th:text="${ex.exerciseType}"></td>
+                <td>
+                    <button type="button" class="btn btn-success btn-lg btn-rounded">
+                        <img th:src="@{assets/add_circle_white_24dp.svg}"
+                             src="../static/assets/add_circle_white_24dp.svg">
+                    </button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-lg btn-rounded">
+                        <img th:src="@{assets/share_white_24dp.svg}" src="../static/assets/share_white_24dp.svg">
+                    </button>
+                </td>
+
+                <td>
+                    <button type="button" class="btn btn-danger btn-lg btn-rounded">
+                        <img th:src="@{assets/delete_outline_white_24dp.svg}"
+                             src="../static/assets/delete_outline_white_24dp.svg">
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
