@@ -5,10 +5,7 @@ import com.optum.runwithitapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UsersController {
@@ -22,10 +19,10 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping("/account")
+    @GetMapping("/admin")
     public String getAllUsers(Model model){
         model.addAttribute("listUsers", userService.getAllUsers());
-        return "redirect:/index";
+        return "admin";
     }
 
     @GetMapping("/create")
@@ -47,9 +44,10 @@ public class UsersController {
         model.addAttribute("users", users);
         return "update_users";
     }
-
+    @GetMapping("/deleteUser/{id}")
+//    @DeleteMapping("/deleteUser/{id}")
     public String deleteUsers(@PathVariable(value = "id") long id){
         this.userService.deleteUsersById(id);
-        return "redirect:/";
+        return "admin";
     }
 }

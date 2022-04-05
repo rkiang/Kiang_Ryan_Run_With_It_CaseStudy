@@ -1,15 +1,14 @@
 package com.optum.runwithitapp.Models;
 
-
 import javax.persistence.*;
 
 @Entity
 @Table(name= "exercises")
-public class Exercises {
+public class Exercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "exerciseId", length = 50, nullable = false)
+    @Column(name = "exercise_id", length = 50, nullable = false)
     private long id;
 
     @Column(name="exercise_name", length = 75, nullable = false)
@@ -18,11 +17,11 @@ public class Exercises {
     @Column(name="exercise_type", length= 50, nullable = false)
     private String exerciseType;
 
-    public long getId() {
+    public long getExerciseId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setExerciseId(long id) {
         this.id = id;
     }
 

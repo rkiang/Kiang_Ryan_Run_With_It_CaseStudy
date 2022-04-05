@@ -20,12 +20,12 @@ public class Users {
     @Column(name = "access_level")
     private String accessLevel = "basic";
 
-    public long getUserId() {
+    public long getId() {
         return id;
     }
 
-    public void setUserId(long userId) {
-        this.id = userId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUserName() {
