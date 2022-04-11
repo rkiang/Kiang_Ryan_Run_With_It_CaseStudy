@@ -20,7 +20,7 @@
 <body id="body-pd">
 <header class="header" id="header">
     <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
-    <img th:src="@{assets/Run With It-logos_black.png}" src="../static/assets/Run With It-logos_black.png" id="logo"
+    <img th:src="@{assets/Run With It-logos_transparent.png}" src="../static/assets/Run With It-logos_transparent.png" id="logo"
          alt="Run With It">
 </header>
 <div class="l-navbar" id="nav-bar">
@@ -28,7 +28,7 @@
         <div><a href="#" class="nav_logo">
             <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Menu</span> </a>
             <div class="nav_list">
-                <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span
+                <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon' style="color:#ffff;"></i> <span
                         class="nav_name">Home</span> </a>
                 <!--                    <a href="create" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create Account</span> </a>-->
                 <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
@@ -83,7 +83,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="#" th:action="@{/createNewExercise}" th:object="${exercise}" method="POST">
+                        <form action="#" th:action="@{/createExercises}" th:object="${exercise}" method="POST">
                             <div class="form-floating">
                                 <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
                                        id="floatingInput" placeholder="Name">
@@ -113,6 +113,7 @@
             <tr>
                 <th>Name</th>
                 <th>Type</th>
+                <th>ID</th>
                 <th>Add to Workout</th>
                 <th>Share</th>
                 <th>Delete</th>
@@ -121,12 +122,13 @@
             <tbody>
             <tr th:each="ex : ${listExercises}">
                 <td th:text="${ex.exerciseName}">
-                    <div class="d-flex align-items-center">
-                        <div class="ms-3">
-                        </div>
-                    </div>
+<!--                    <div class="d-flex align-items-center">-->
+<!--                        <div class="ms-3">-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </td>
                 <td th:text="${ex.exerciseType}"></td>
+                <td th:text="${ex.id}"></td>
                 <td>
                     <button type="button" class="btn btn-success btn-lg btn-rounded">
                         <img th:src="@{assets/add_circle_white_24dp.svg}"
@@ -140,10 +142,10 @@
                 </td>
 
                 <td>
-                    <button type="button" class="btn btn-danger btn-lg btn-rounded">
+                    <a th:href="@{/deleteExercises/{id}(id=${ex.id})}" class="btn btn-danger btn-lg btn-rounded">
                         <img th:src="@{assets/delete_outline_white_24dp.svg}"
                              src="../static/assets/delete_outline_white_24dp.svg">
-                    </button>
+                    </a>
                 </td>
             </tr>
             </tbody>

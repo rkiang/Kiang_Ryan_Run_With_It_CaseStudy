@@ -15,8 +15,9 @@
 </head>
 <body id="body-pd">
 <header class="header" id="header">
-    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle"></i></div>
-    <img th:src="@{assets/Run With It-logos_black.png}" src="../static/assets/Run With It-logos_black.png" id="logo" alt="Run With It">
+    <div class="header_toggle"><i class='bx bx-menu' id="header-toggle" style="color:#ffff;"></i></div>
+    <img th:src="@{assets/Run With It-logos_transparent.png}" src="../static/assets/Run With It-logos_transparent.png"
+         id="logo" alt="Run With It">
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
@@ -43,18 +44,18 @@
 <br>
 <h3 style="padding-top:30px">Create Account</h3>
 <h1></h1>
-<form action="#" th:action="@{/createNewAccount}" th:object="${users}"  method="POST">
+<form action="#" th:action="@{/createNewAccount}" th:object="${users}" method="POST">
     <div class="row mb-3">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputEmail3" th:field="*{userName}">
-      </div>
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" th:field="*{userName}">
+        </div>
     </div>
     <div class="row mb-3">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" th:field="*{password}">
-      </div>
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" th:field="*{password}">
+        </div>
     </div>
     <div class="row mb-3">
         <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
@@ -64,10 +65,12 @@
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Create</button>
-  </form>
+</form>
 <!-- <h4><a link href="create_account.html">Create Account</a></h4> -->
 <label></label>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>

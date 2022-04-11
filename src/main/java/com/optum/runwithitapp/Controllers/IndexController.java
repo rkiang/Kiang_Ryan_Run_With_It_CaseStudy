@@ -13,10 +13,10 @@ public class IndexController {
         return "create_account";
     }
 
-    @RequestMapping("/login")
-    public String indexLogin(){
-        return "login";
-    }
+//    @RequestMapping("/login")
+//    public String indexLogin(){
+//        return "login";
+//    }
 
 //    @RequestMapping("/admin")
 //    public String adminSettings(){

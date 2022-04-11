@@ -1,6 +1,6 @@
 package com.optum.runwithitapp;
 
-import com.optum.runwithitapp.Controllers.ExerciseController;
+import com.optum.runwithitapp.Controllers.ExercisesController;
 import com.optum.runwithitapp.Controllers.UsersController;
 import com.optum.runwithitapp.Services.ExerciseService;
 import com.optum.runwithitapp.Services.UserService;
@@ -31,7 +31,7 @@ public class KiangRyanRunWithItCaseStudyApplication {
 		if(exerciseService!=null){
 			System.out.println("exercise: " + exerciseService);
 		}
-		ExerciseController exerciseController = applicationContext.getBean(ExerciseController.class);
+		ExercisesController exerciseController = applicationContext.getBean(ExercisesController.class);
 		if(exerciseController!=null){
 			System.out.println("exerciseController: "+exerciseController);
 		}

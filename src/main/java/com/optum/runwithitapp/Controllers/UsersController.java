@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class UsersController {
     private UserService userService;
@@ -49,5 +52,17 @@ public class UsersController {
     public String deleteUsers(@PathVariable(value = "id") long id){
         this.userService.deleteUsersById(id);
         return "admin";
+    }
+
+    @GetMapping("/index")
+    public String login(){
+        return "exercise";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession httpSession = request.getSession();
+        httpSession.invalidate();
+        return "redirect:/";
     }
 }

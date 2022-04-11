@@ -1,15 +1,16 @@
 package com.optum.runwithitapp.Services;
 
-import com.optum.runwithitapp.Models.Exercise;
+import com.optum.runwithitapp.Models.Exercises;
 
 import java.util.List;
 
 public interface ExerciseService {
-    List<Exercise> getAllExercises();
+    List<Exercises> getAllExercises();
 
-    void saveExercises(Exercise exercises);
+    void saveExercises(Exercises exercises);
 
-    Exercise getExercisesById(long id);
+    Exercises getExercisesById(long id);
 
     void deleteExercisesById(long id);
+
 }

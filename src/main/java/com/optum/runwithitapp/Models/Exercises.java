@@ -3,25 +3,22 @@ package com.optum.runwithitapp.Models;
 import javax.persistence.*;
 
 @Entity
-@Table(name= "exercises")
-public class Exercise {
-
+@Table(name = "exercises")
+public class Exercises {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "exercise_id", length = 50, nullable = false)
+    @Column(name="exercise_id")
     private long id;
-
-    @Column(name="exercise_name", length = 75, nullable = false)
+    @Column(name="exercise_name")
     private String exerciseName;
-
-    @Column(name="exercise_type", length= 50, nullable = false)
+    @Column(name="exercise_type")
     private String exerciseType;
 
-    public long getExerciseId() {
+    public long getId() {
         return id;
     }
 
-    public void setExerciseId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
