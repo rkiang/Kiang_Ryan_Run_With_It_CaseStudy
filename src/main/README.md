@@ -1,9 +1,16 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
-## Application will be a fitness tracking utility application.
+##UPDATE 4/11/2022
+- Half of the pages are complete, as well as half of the models. 
+- About 50% complete with application MVP. 
+- A lot of the user stories below are smaller implementations.
+- Overall picture is clearer and coding is easier as I continue.
 
-### User stories:
-- As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.
+
+### Application will be a fitness tracking utility application.
+
+#### User stories:
+- <strike>As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.</strike>
 - As a user, I want to select which day of the week, so I may add/edit information about my workouts.
 - As a user, I want to create goals to work towards, so I can view the progress over time.
 - As a user, I want to add duration to cardio exercises, so I may view length of time my workouts last.
@@ -15,11 +22,11 @@
 - As a user, I want to add community exercises, so I may quickly add them to my goal or past workouts.
 - As a user, I want to mark goals 'Complete' when achieved, so I can remove the goal as inactive.
 - As a user, I want to edit goals, so I can change parameters if they were initially not ideal.
-- As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.
+- <strike>As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.</strike>
 - As a user, I want to name/rename my goals, so I can understand my own submissions to my liking.
-- As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.
+- <strike>As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.</strike>
 - [Stretch Goal] As a user, I want a personal account page, so I may edit my username and/or password credentials.
-- As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.
+- <strike>As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.</strike>
 - [Stretch Goal] As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
 - As an Admin user, I want to be able to remove/delete posts in community page, so I can keep the page maintained and less cluttered.
 - As an Admin user, I want to view and modify users' account access rights, so I may create "moderator" accounts to manage the community page.
