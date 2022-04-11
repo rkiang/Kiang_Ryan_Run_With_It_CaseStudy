@@ -49,26 +49,26 @@
 <div class="height-100 bg-light">
     <!--    Main Components-->
 
-    <!-- Tab links -->
-    <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Workouts')">Workouts</button>
-        <button class="tablinks" onclick="openTab(event, 'Goals')">Goals</button>
-        <button class="tablinks" onclick="openTab(event, 'Exercises')">Exercises</button>
-    </div>
+<!--    &lt;!&ndash; Tab links &ndash;&gt;-->
+<!--    <div class="tab">-->
+<!--        <button class="tablinks" onclick="openTab(event, 'Workouts')">Workouts</button>-->
+<!--        <button class="tablinks" onclick="openTab(event, 'Goals')">Goals</button>-->
+<!--        <button class="tablinks" onclick="openTab(event, 'Exercises')">Exercises</button>-->
+<!--    </div>-->
 
-    <!-- Tab content -->
-    <div id="Workouts" class="tabcontent">
-        <h3>Workouts</h3>
-        <!--        <p>London is the capital city of England.</p>-->
-    </div>
+<!--    &lt;!&ndash; Tab content &ndash;&gt;-->
+<!--    <div id="Workouts" class="tabcontent">-->
+<!--        <h3>Workouts</h3>-->
+<!--        &lt;!&ndash;        <p>London is the capital city of England.</p>&ndash;&gt;-->
+<!--    </div>-->
 
-    <div id="Goals" class="tabcontent">
-        <h3>Goals</h3>
-        <!--        <p>Paris is the capital of France.</p>-->
-    </div>
+<!--    <div id="Goals" class="tabcontent">-->
+<!--        <h3>Goals</h3>-->
+<!--        &lt;!&ndash;        <p>Paris is the capital of France.</p>&ndash;&gt;-->
+<!--    </div>-->
 
-    <div id="Exercises" class="tabcontent">
-        <!-- Button trigger modal -->
+<!--    <div id="Exercises" class="tabcontent">-->
+<!--        &lt;!&ndash; Button trigger modal &ndash;&gt;-->
 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add Exercise
@@ -115,7 +115,7 @@
                 <th>Type</th>
                 <th>ID</th>
                 <th>Add to Workout</th>
-                <th>Share</th>
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -136,10 +136,44 @@
                     </button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-lg btn-rounded">
-                        <img th:src="@{assets/share_white_24dp.svg}" src="../static/assets/share_white_24dp.svg">
+                    <button type="button" class="btn btn-primary btn-lg btn-rounded"
+                            data-bs-toggle="modal" data-bs-target="#editModal">
+                        <img th:src="@{assets/edit_white_24dp.svg}" src="../static/assets/edit_white_24dp.svg">
                     </button>
                 </td>
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#" th:action="@{/updatedExercises/{id}(id=${ex.id})}" th:object="${exercise}" method="POST">
+                                    <div class="form-floating">
+                                        <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
+                                               id="floatingInput1" placeholder="Name">
+                                        <label for="floatingInput"></label>
+                                    </div>
+                                    <div class="form-floating">
+                                        <select id="floatingType1" class="form-select" aria-label="Default select example"
+                                                field="*{exerciseType}" name="exerciseType" placeholder="Type">
+                                            <option value="Cardio">Cardio</option>
+                                            <option value="Weights">Weights</option>
+                                        </select>
+                                        <!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
+                                        <label for="floatingType">Type</label>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard Changes</button>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <td>
                     <a th:href="@{/deleteExercises/{id}(id=${ex.id})}" class="btn btn-danger btn-lg btn-rounded">
