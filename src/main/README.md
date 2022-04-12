@@ -1,10 +1,14 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
-##UPDATE 4/11/2022
-- Half of the pages are complete, as well as half of the models. 
-- About 50% complete with application MVP. 
-- A lot of the user stories below are smaller implementations.
-- Overall picture is clearer and coding is easier as I continue.
+## Daily Progress
+- **April 12th (50% complete)** 
+  - Adding User Goals CRUD and views, then registration.
+  - After that, last remaining large component will be the Workout CRUD.
+- **April 11th (50% complete)**
+  - Half of the pages are complete, as well as half of the models. 
+  - About 50% complete with application MVP. 
+  - A lot of the user stories below are smaller implementations.
+  - Overall picture is clearer and coding is easier as I continue.
 
 
 ### Application will be a fitness tracking utility application.

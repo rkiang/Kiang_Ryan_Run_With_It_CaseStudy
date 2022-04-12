@@ -14,6 +14,8 @@ public class UserGoals {
 
     private long userId;
 
+    private String goalName;
+
     private String goalExerciseName;
 
     private String goalExerciseType;
@@ -30,6 +32,13 @@ public class UserGoals {
 
     private Date goalComplete;
 
+    public String getGoalName() {
+        return goalName;
+    }
+
+    public void setGoalName(String goalName) {
+        this.goalName = goalName;
+    }
 
     public long getId() {
         return id;
