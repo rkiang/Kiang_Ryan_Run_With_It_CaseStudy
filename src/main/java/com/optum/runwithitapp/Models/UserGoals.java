@@ -2,34 +2,45 @@ package com.optum.runwithitapp.Models;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name = "goals")
 public class UserGoals {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "goalId", nullable = false)
-    private long id;
-
-    private long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String goalName;
 
-    private String goalExerciseName;
-
-    private String goalExerciseType;
-
     private boolean completion;
 
-    private int sets;
+    private String goalSet;
 
-    private int reps;
+    private String goalCompleted;
 
-    private int duration;
+    public UserGoals() {
+    }
 
-    private Date goalSet;
+    @OneToMany(mappedBy = "goals", targetEntity = Users.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Users> users = new HashSet<>();
+    public UserGoals(Long id, String goalName,
+                     boolean completion, String goalSet, String goalCompleted) {
+        this.id = id;
+        this.goalName = goalName;
+        this.completion = completion;
+        this.goalSet = goalSet;
+        this.goalCompleted = goalCompleted;
+    }
 
-    private Date goalComplete;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getGoalName() {
         return goalName;
@@ -37,38 +48,6 @@ public class UserGoals {
 
     public void setGoalName(String goalName) {
         this.goalName = goalName;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public String getGoalExerciseName() {
-        return goalExerciseName;
-    }
-
-    public void setGoalExerciseName(String goalExerciseName) {
-        this.goalExerciseName = goalExerciseName;
-    }
-
-    public String getGoalExerciseType() {
-        return goalExerciseType;
-    }
-
-    public void setGoalExerciseType(String goalExerciseType) {
-        this.goalExerciseType = goalExerciseType;
     }
 
     public boolean isCompletion() {
@@ -79,43 +58,19 @@ public class UserGoals {
         this.completion = completion;
     }
 
-    public int getSets() {
-        return sets;
-    }
-
-    public void setSets(int sets) {
-        this.sets = sets;
-    }
-
-    public int getReps() {
-        return reps;
-    }
-
-    public void setReps(int reps) {
-        this.reps = reps;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public Date getGoalSet() {
+    public String getGoalSet() {
         return goalSet;
     }
 
-    public void setGoalSet(Date goalSet) {
+    public void setGoalSet(String goalSet) {
         this.goalSet = goalSet;
     }
 
-    public Date getGoalComplete() {
-        return goalComplete;
+    public String getGoalCompleted() {
+        return goalCompleted;
     }
 
-    public void setGoalComplete(Date goalComplete) {
-        this.goalComplete = goalComplete;
+    public void setGoalCompleted(String goalCompleted) {
+        this.goalCompleted = goalCompleted;
     }
 }

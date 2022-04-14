@@ -14,6 +14,14 @@ public class Exercises {
     @Column(name="exercise_type")
     private String exerciseType;
 
+    private Integer reps;
+
+    private Integer sets;
+
+    private Integer weightAmount;
+
+    private Integer duration;
+
     public long getId() {
         return id;
     }

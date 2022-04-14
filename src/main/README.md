@@ -1,8 +1,9 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
 ## Daily Progress
-- **April 14th (65-70% complete)**
+- **April 14th (70% complete)**
   - Completed registration with login.
+  - Added last model, working on many and one to many table joins.
   - Working with posting with logged in user.
 - **April 13th (60% complete)**
   - Added user registration
