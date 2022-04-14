@@ -1,15 +1,18 @@
 package com.optum.runwithitapp.Models;
 
 
+
+
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId", length = 50, nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name="username", length = 50, nullable = false)
     private String userName;
@@ -17,14 +20,36 @@ public class Users {
     @Column(name = "password", length = 50, nullable = false)
     private String password;
 
-    @Column(name = "access_level")
-    private String accessLevel = "basic";
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "users_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "roles_id", referencedColumnName = "id"))
+    private Collection<Roles> roles;
 
-    public long getId() {
+    public Users() {
+    }
+
+    public Users(Long id, String userName, String password) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public Users(Long id, String userName, String password, Collection<Roles> roles) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -44,11 +69,21 @@ public class Users {
         this.password = password;
     }
 
-    public String getAccessLevel() {
-        return accessLevel;
+    public Collection<Roles> getRoles() {
+        return roles;
     }
 
-    public void setAccessLevel(String accessLevel) {
-        this.accessLevel = accessLevel;
+    public void setRoles(Collection<Roles> roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "com.optum.runwithitapp.Users{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + "*********" + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

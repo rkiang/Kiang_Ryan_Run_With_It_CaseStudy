@@ -1,6 +1,8 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
 ## Daily Progress
+- **April 13th (60% complete)**
+  - Added user registration
 - **April 12th (50% complete)** 
   - Adding User Goals CRUD and views, then registration.
   - After that, last remaining large component will be the Workout CRUD.

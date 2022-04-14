@@ -44,7 +44,7 @@
 <br>
 <h3 style="padding-top:30px">Create Account</h3>
 <h1></h1>
-<form action="#" th:action="@{/createNewAccount}" th:object="${users}" method="POST">
+<form action="#" th:action="@{/register}" th:object="${users}" method="POST">
     <div class="row mb-3">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
         <div class="col-sm-10">
@@ -55,6 +55,12 @@
         <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10">
             <input type="password" class="form-control" id="inputPassword3" th:field="*{password}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputPassword4" class="col-sm-2 col-form-label">Confirm Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword4" th:field="*{confirmPassword}">
         </div>
     </div>
     <div class="row mb-3">

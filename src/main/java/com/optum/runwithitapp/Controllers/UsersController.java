@@ -1,6 +1,7 @@
 package com.optum.runwithitapp.Controllers;
 
 import com.optum.runwithitapp.Models.Users;
+import com.optum.runwithitapp.Repositories.UserRepository;
 import com.optum.runwithitapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +10,25 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @Controller
 public class UsersController {
+
+    private UserRepository userRepository;
+
+    public UsersController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping("/test")
+    public Users testing(Principal principal, Model model){
+        Users users = userRepository.findByUsername(principal.getName());
+        model.addAttribute("username", principal.getName());
+        model.addAttribute("user", users.getUserName());
+        return users;
+    }
+
     private UserService userService;
 
     public UsersController() {
