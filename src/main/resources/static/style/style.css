@@ -1,3 +1,23 @@
+body, .bg-light {
+  font-family: Arial, Helvetica, sans-serifs;
+  font-weight: 100;
+  background: linear-gradient(-45deg, #0088FF, #00B0FF, #00CEEF, #00E4BA, #8CF387, #F9F871);
+	background-size: 400% 400%;
+	animation: gradient 24s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 #logo{
     width: 35%;
     margin-right: 35%;

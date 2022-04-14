@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{style/style.css}" href="../static/style/style.css">
@@ -37,7 +38,7 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="nav_link">
+        <a href="#" class="nav_link" sec:authorize="isAuthenticated()" th:href="@{/logout}">
             <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sign Out</span> </a>
     </nav>
 </div>

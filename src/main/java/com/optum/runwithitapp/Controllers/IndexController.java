@@ -14,33 +14,14 @@ public class IndexController {
 //    public String indexCreateAccount(){
 //        return "create_account";
 //    }
-//    @GetMapping("/")
-//    public String root() {
-//        return "index";
-//    }
-
-    @GetMapping("/login")
-    public String login(Model model) {
+    @GetMapping("/")
+    public String root() {
         return "index";
     }
 
-//    @GetMapping("/user")
-//    public String userIndex() {
-//        return "user/index";
-//    }
+    @GetMapping("/login")
+    public String login(Model model) {
+        return "welcome";
+    }
 
-//    @RequestMapping("/login")
-//    public String indexLogin(){
-//        return "login";
-//    }
-
-//    @RequestMapping("/admin")
-//    public String adminSettings(){
-//        return "admin";
-//    }
-
-//    @RequestMapping(value="/exercise", method= RequestMethod.GET)
-//    public String exercisePage(){
-//        return "/exercise";
-//    }
 }

@@ -21,12 +21,12 @@ public class UsersController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/test")
-    public Users testing(Principal principal, Model model){
+    @GetMapping("/welcome")
+    public String testing(Principal principal, Model model){
         Users users = userRepository.findByUsername(principal.getName());
         model.addAttribute("username", principal.getName());
         model.addAttribute("user", users.getUsername());
-        return users;
+        return "welcome";
     }
 
     private UserService userService;
