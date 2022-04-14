@@ -11,13 +11,13 @@ import java.util.Collection;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column( length = 50, nullable = false)
+    @Column
     private Long id;
 
-    @Column(name="username", length = 50, nullable = false)
+    @Column
     private String username;
 
-    @Column(name = "password", length = 50, nullable = false)
+    @Column
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

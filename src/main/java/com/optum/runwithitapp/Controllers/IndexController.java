@@ -24,10 +24,10 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/user")
-    public String userIndex() {
-        return "user/index";
-    }
+//    @GetMapping("/user")
+//    public String userIndex() {
+//        return "user/index";
+//    }
 
 //    @RequestMapping("/login")
 //    public String indexLogin(){
