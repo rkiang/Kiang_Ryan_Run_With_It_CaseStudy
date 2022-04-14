@@ -1,8 +1,10 @@
 package com.optum.runwithitapp;
 
 import com.optum.runwithitapp.Controllers.ExercisesController;
+import com.optum.runwithitapp.Controllers.UserGoalsController;
 import com.optum.runwithitapp.Controllers.UsersController;
 import com.optum.runwithitapp.Services.ExerciseService;
+import com.optum.runwithitapp.Services.UserGoalsService;
 import com.optum.runwithitapp.Services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -19,6 +21,8 @@ public class KiangRyanRunWithItCaseStudyApplication {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KiangRyanRunWithItCaseStudyApplication.class, args);
 		UserService userService = applicationContext.getBean(UserService.class);
 		ExerciseService exerciseService = applicationContext.getBean(ExerciseService.class);
+		UserGoalsService userGoalsService = applicationContext.getBean(UserGoalsService.class);
+
 
 		if(userService!=null){
 			System.out.println("userService: "+userService);
@@ -34,6 +38,14 @@ public class KiangRyanRunWithItCaseStudyApplication {
 		ExercisesController exerciseController = applicationContext.getBean(ExercisesController.class);
 		if(exerciseController!=null){
 			System.out.println("exerciseController: "+exerciseController);
+		}
+
+		if(userGoalsService!=null){
+			System.out.println("userGoalsService: " + userGoalsService);
+		}
+		UserGoalsController userGoalsController = applicationContext.getBean(UserGoalsController.class);
+		if(userGoalsController!=null){
+			System.out.println("userGoalsController: "+userGoalsController);
 		}
 	}
 

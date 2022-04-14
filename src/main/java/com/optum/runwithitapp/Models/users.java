@@ -11,11 +11,11 @@ import java.util.Collection;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId", length = 50, nullable = false)
+    @Column( length = 50, nullable = false)
     private Long id;
 
     @Column(name="username", length = 50, nullable = false)
-    private String userName;
+    private String username;
 
     @Column(name = "password", length = 50, nullable = false)
     private String password;
@@ -32,15 +32,15 @@ public class Users {
     public Users() {
     }
 
-    public Users(Long id, String userName, String password) {
+    public Users(Long id, String username, String password) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
     }
 
-    public Users(Long id, String userName, String password, Collection<Roles> roles) {
+    public Users(Long id, String username, String password, Collection<Roles> roles) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.roles = roles;
     }
@@ -53,12 +53,12 @@ public class Users {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -81,7 +81,7 @@ public class Users {
     public String toString() {
         return "com.optum.runwithitapp.Users{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + "*********" + '\'' +
                 ", roles=" + roles +
                 '}';

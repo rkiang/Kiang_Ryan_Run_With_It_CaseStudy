@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class IndexController {
 
 
-    @RequestMapping("/create")
-    public String indexCreateAccount(){
-        return "create_account";
-    }
-    @GetMapping("/")
-    public String root() {
-        return "index";
-    }
+//    @RequestMapping("/create")
+//    public String indexCreateAccount(){
+//        return "create_account";
+//    }
+//    @GetMapping("/")
+//    public String root() {
+//        return "index";
+//    }
 
     @GetMapping("/login")
     public String login(Model model) {
-        return "login";
+        return "index";
     }
 
     @GetMapping("/user")

@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +27,9 @@ public class UsersServiceImpl implements UserService{
     private PasswordEncoder passwordEncoder;
 
 
-    public UsersServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UsersServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
     public Users findByUsername(String username) {
@@ -37,7 +38,7 @@ public class UsersServiceImpl implements UserService{
 
     public Users save(UserRegistrationDto registration) {
         Users users = new Users();
-        users.setUserName(registration.getUserName());
+        users.setUsername(registration.getUsername());
         users.setPassword(passwordEncoder.encode(registration.getPassword()));
 
         users.setRoles(Arrays.asList(new Roles("ROLE_USER")));
@@ -50,7 +51,7 @@ public class UsersServiceImpl implements UserService{
         if(users == null){
             throw new UsernameNotFoundException("Invalid username/password");
         }
-        return new org.springframework.security.core.userdetails.User(users.getUserName(), users.getPassword(),
+        return new org.springframework.security.core.userdetails.User(users.getUsername(), users.getPassword(),
                 mapRolesToAuthorities(users.getRoles()));
     }
 

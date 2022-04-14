@@ -25,7 +25,7 @@ public class UsersController {
     public Users testing(Principal principal, Model model){
         Users users = userRepository.findByUsername(principal.getName());
         model.addAttribute("username", principal.getName());
-        model.addAttribute("user", users.getUserName());
+        model.addAttribute("user", users.getUsername());
         return users;
     }
 

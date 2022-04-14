@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
+                .loginPage("/").permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
@@ -45,6 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
         // @formatter:on
     }
+    @Override
+    public void configure(WebSecurity web) throws Exception{
+        web.ignoring().antMatchers("/**");
+    }
+
 
     @Bean   /*Creating own DAO authentication provider. there is also one provided by Spring Security*/
     public DaoAuthenticationProvider authenticationProvider(){
