@@ -22,16 +22,16 @@
         <div><a href="#" class="nav_logo">
             <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Menu</span> </a>
             <div class="nav_list">
-                <a th:href="index" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span
+                <a th:href="index" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span
                         class="nav_name">Home</span> </a>
                 <!--                    <a href="create" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create Account</span> </a>-->
-                <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                <a href="workouts" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
                         class="nav_name">Workouts</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                <a href="goals" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
                         class="nav_name">Goals</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
+                <a href="exercise" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
                         class="nav_name">Exercises</span> </a>
-                <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Settings</span>
+                <a href="#" class="nav_link active"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Settings</span>
                 </a>
             </div>
         </div>
@@ -41,37 +41,37 @@
 </div>
 <!--Container Main start-->
 <div class="height-100 bg-light">
-    <table border="1" class="table table-striped table-responsive-md">
-        <thead>
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>Password</th>
-            <th>Account Level</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="users : ${listUsers}">
-            <td th:text="${users.id}"></td>
-            <td th:text="${users.username}"></td>
-            <td th:text="${users.password}"></td>
-            <td th:text="${users.accessLevel}"></td>
-            <td><div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Edit Account
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Basic</a></li>
-                    <li><a class="dropdown-item" href="#">Moderator</a></li>
-                    <li><a class="dropdown-item" href="#">Administrator</a></li>
-                </ul>
-            </div></td>
-            <td>
-                <a th:href="@{/deleteUser/{id}(id=${users.id})}"  class="btn btn-danger">Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<!--    <table border="1" class="table table-striped table-responsive-md">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>User ID</th>-->
+<!--            <th>Username</th>-->
+<!--            <th>Password</th>-->
+<!--            <th>Account Level</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="users : ${listUsers}">-->
+<!--            <td th:text="${users.id}"></td>-->
+<!--            <td th:text="${users.username}"></td>-->
+<!--            <td th:text="${users.password}"></td>-->
+<!--            <td th:text="${users.accessLevel}"></td>-->
+<!--            <td><div class="dropdown">-->
+<!--                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                    Edit Account-->
+<!--                </button>-->
+<!--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--                    <li><a class="dropdown-item" href="#">Basic</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Moderator</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Administrator</a></li>-->
+<!--                </ul>-->
+<!--            </div></td>-->
+<!--            <td>-->
+<!--                <a th:href="@{/deleteUser/{id}(id=${users.id})}"  class="btn btn-danger">Delete</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
 
 </div>
 

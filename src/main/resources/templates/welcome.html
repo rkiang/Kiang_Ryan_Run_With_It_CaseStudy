@@ -30,22 +30,21 @@
             <div class="nav_list">
                 <a class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Home</span>
                 </a>
-                <a href="create" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Create Account</span>
-                </a>
-                <a class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
+                <a href="workouts" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
                         class="nav_name">Workouts</span> </a>
-                <a class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                <a href="goals" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
                         class="nav_name">Goals</span> </a>
                 <a href="exercise" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Exercises</span>
                 </a>
                 <a href="admin" class="nav_link"> <img src="assets/admin_panel_settings_white_24dp.svg"> <span
                         class="nav_name">Admin Settings</span> </a>
-                <a class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                <a  href="admin" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
                         class="nav_name">Settings</span>
                 </a>
             </div>
-        </div><!-- <a href="#" class="nav_link"> -->
-        <i class='bx bx-log-out nav_icon'></i> <span class="nav_name " sec:authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</span> </a>
+        </div> <a href="#" class="nav_link">
+        <i class='bx bx-log-out nav_icon'></i>
+        <span class="nav_name " sec:authorize="isAuthenticated()" th:href="@{/logout}">Sign Out</span> </a>
     </nav>
 </div>
 <!--Container Main start-->

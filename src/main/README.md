@@ -1,6 +1,9 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
 ## Daily Progress
+- **April 14th (65-70% complete)**
+  - Completed registration with login.
+  - Working with posting with logged in user.
 - **April 13th (60% complete)**
   - Added user registration
 - **April 12th (50% complete)** 
