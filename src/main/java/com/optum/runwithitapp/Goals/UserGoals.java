@@ -1,5 +1,7 @@
 package com.optum.runwithitapp.Goals;
 
+import com.optum.runwithitapp.Security.User;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -14,7 +16,7 @@ public class UserGoals {
 
     private String goalName;
 
-    private boolean completion;
+    private boolean completion = false;
 
     private String goalSet;
 
@@ -23,24 +25,25 @@ public class UserGoals {
     public UserGoals() {
     }
 
-//    @OneToMany(mappedBy = "goals", targetEntity = Users.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//    private Set<Users> users = new HashSet<>();
-//    public UserGoals(Long id, String goalName,
-//                     boolean completion, String goalSet, String goalCompleted) {
-//        this.id = id;
-//        this.goalName = goalName;
-//        this.completion = completion;
-//        this.goalSet = goalSet;
-//        this.goalCompleted = goalCompleted;
-//    }
-//
-//    public Set<Users> getUsers() {
-//        return users;
-//    }
-//
-//    public void setUsers(Set<Users> users) {
-//        this.users = users;
-//    }
+    @OneToMany(mappedBy = "goals", targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<User> user = new HashSet<>();
+    public UserGoals(Long id, String goalName,
+                     boolean completion, String goalSet, String goalCompleted) {
+        this.id = id;
+        this.goalName = goalName;
+        this.completion = completion;
+        this.goalSet = goalSet;
+        this.goalCompleted = goalCompleted;
+    }
+
+
+    public Set<User> getUser() {
+        return user;
+    }
+
+    public void setUser(Set<User> user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;

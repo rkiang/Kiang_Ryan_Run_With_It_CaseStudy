@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Goals</title>
@@ -31,8 +31,8 @@
             <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Menu</span> </a>
             <div class="nav_list">
                 <a href="index" class="nav_link">
-                    <img th:src="@{assets/home_white_24dp.svg}" src="../static/assets/home_white_24dp.svg"> <span
-                        class="nav_name">Home</span> </a>
+                    <img th:src="@{assets/home_white_24dp.svg}" src="../static/assets/home_white_24dp.svg">
+                    <span class="nav_name">Home</span> </a>
                 <a href="workouts" class="nav_link">
                     <img th:src="@{assets/run_circle_white_24dp.svg}" src="../static/assets/run_circle_white_24dp.svg">
                     <span class="nav_name">Workouts</span> </a>
@@ -55,7 +55,13 @@
 <!--Container Main start-->
 <div class="height-100 bg-light" style="margin-top: 5%;">
     <!--    Main Components-->
-
+    <div>
+        <h1>Create new goals</h1>
+        <form action="#" th:action="@{/createGoals}" th:object="${userGoals}" method="POST">
+            <input th:field="*{goalName}" type="text" placeholder="Name">
+            <input th:field="*{goalName}" type="text" placeholder="Name">
+        </form>
+    </div>
 
     <!--    &lt;!&ndash; Tab links &ndash;&gt;-->
     <!--    <div class="tab">-->

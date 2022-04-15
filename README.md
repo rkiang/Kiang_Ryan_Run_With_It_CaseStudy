@@ -1,6 +1,9 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
 ## Daily Progress
+- **April 15th (70% complete)**
+  - Working on fixing login
+  - Likely scaling down to remove Exercise logic and implement to workouts and goals each.
 - **April 14th (70% complete)**
   - Completed registration with login.
   - Added last model, working on many and one to many table joins.
