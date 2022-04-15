@@ -39,7 +39,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "com.optum.runwithitapp.Roles{" +
+        return "com.optum.runwithitapp.Models.Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

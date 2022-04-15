@@ -47,12 +47,13 @@ public class UsersServiceImpl implements UserService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User users = userRepository.findByUsername(username);
-        if(users == null){
+        User user = userRepository.findByUsername(username);
+        if(user == null){
             throw new UsernameNotFoundException("Invalid username/password");
         }
-        return new org.springframework.security.core.userdetails.User(users.getUsername(), users.getPassword(),
-                mapRolesToAuthorities(users.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(),
+                user.getPassword(),
+                mapRolesToAuthorities(user.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){

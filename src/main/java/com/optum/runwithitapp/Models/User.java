@@ -79,7 +79,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "com.optum.runwithitapp.Users{" +
+        return "com.optum.runwithitapp.Models.User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + "*********" + '\'' +
