@@ -15,22 +15,22 @@ public class Workouts {
 
     private Date workoutDate;
 
-    @ManyToMany(targetEntity = Users.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private List<Users> usersWorkouts;
+    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private List<User> usersWorkouts;
 
 
-    public Workouts(Long id, String workoutName, Date workoutDate, List<Users> usersWorkouts) {
+    public Workouts(Long id, String workoutName, Date workoutDate, List<User> usersWorkouts) {
         this.id = id;
         this.workoutName = workoutName;
         this.workoutDate = workoutDate;
         this.usersWorkouts = usersWorkouts;
     }
 
-    public List<Users> getUsersWorkouts() {
+    public List<User> getUsersWorkouts() {
         return usersWorkouts;
     }
 
-    public void setUsersWorkouts(List<Users> usersWorkouts) {
+    public void setUsersWorkouts(List<User> usersWorkouts) {
         this.usersWorkouts = usersWorkouts;
     }
 

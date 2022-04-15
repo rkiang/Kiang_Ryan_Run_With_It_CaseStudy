@@ -1,8 +1,8 @@
 package com.optum.runwithitapp.Services;
 
 
-import com.optum.runwithitapp.Models.Roles;
-import com.optum.runwithitapp.Models.Users;
+import com.optum.runwithitapp.Models.Role;
+import com.optum.runwithitapp.Models.User;
 import com.optum.runwithitapp.Registration.UserRegistrationDto;
 import com.optum.runwithitapp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,22 +32,22 @@ public class UsersServiceImpl implements UserService{
         this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    public Users findByUsername(String username) {
+    public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    public Users save(UserRegistrationDto registration) {
-        Users users = new Users();
+    public User save(UserRegistrationDto registration) {
+        User users = new User();
         users.setUsername(registration.getUsername());
         users.setPassword(passwordEncoder.encode(registration.getPassword()));
 
-        users.setRoles(Arrays.asList(new Roles("ROLE_USER")));
+        users.setRoles(Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(users);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Users users = userRepository.findByUsername(username);
+        User users = userRepository.findByUsername(username);
         if(users == null){
             throw new UsernameNotFoundException("Invalid username/password");
         }
@@ -55,25 +55,25 @@ public class UsersServiceImpl implements UserService{
                 mapRolesToAuthorities(users.getRoles()));
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Roles> roles){
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    public void saveUsers(Users users) {
+    public void saveUsers(User users) {
         userRepository.save(users);
     }
 
     @Override
-    public Users getUsersById(long id) {
-        Users users = userRepository.getById(id);
+    public User getUsersById(long id) {
+        User users = userRepository.getById(id);
         if(users == null){
             try{
                 throw new UserNotFoundException();

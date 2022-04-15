@@ -57,7 +57,7 @@
          style="width: 18rem; margin-right: 10%; margin-top: 10%;">
         <div class="card-body">
             <h5 class="card-title">Login</h5>
-            <form th:action="@{/login}">
+            <form th:action="@{/login}" method="post">
                 <div class="form-floating">
                     <input name="username" type="text" class="form-control border-danger mb-3"
                            id="username" placeholder="Username">
@@ -79,7 +79,7 @@
             </form>
 
             <div class="row mb-3">
-                <a th:href="@{/register}" href="register" class="btn btn-link">Create a new account</a>
+                <a th:href="@{/register}" href="/" class="btn btn-link">Create a new account</a>
             </div>
         </div>
     </div>

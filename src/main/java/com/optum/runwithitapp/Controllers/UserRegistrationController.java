@@ -1,7 +1,7 @@
 package com.optum.runwithitapp.Controllers;
 
 
-import com.optum.runwithitapp.Models.Users;
+import com.optum.runwithitapp.Models.User;
 import com.optum.runwithitapp.Registration.UserRegistrationDto;
 import com.optum.runwithitapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class UserRegistrationController {
     @PostMapping
     public String registerUserAccount(@ModelAttribute("users") @Valid UserRegistrationDto userRegistrationDto,
                                       BindingResult bindingResult){
-        Users existing = userService.findByUsername((userRegistrationDto.getUsername()));
+        User existing = userService.findByUsername((userRegistrationDto.getUsername()));
         if(existing != null){
             bindingResult.rejectValue("username", null, "Username already exists, try another username");
         }

@@ -1,6 +1,6 @@
 package com.optum.runwithitapp.Controllers;
 
-import com.optum.runwithitapp.Models.Users;
+import com.optum.runwithitapp.Models.User;
 import com.optum.runwithitapp.Repositories.UserRepository;
 import com.optum.runwithitapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class UsersController {
 
     @GetMapping("/welcome")
     public String testing(Principal principal, Model model){
-        Users users = userRepository.findByUsername(principal.getName());
+        User users = userRepository.findByUsername(principal.getName());
         model.addAttribute("username", principal.getName());
         model.addAttribute("user", users.getUsername());
         return "welcome";
@@ -47,20 +47,20 @@ public class UsersController {
 
     @GetMapping("/create")
     public String displayCreateAccountForm(Model model){
-        Users users = new Users();
+        User users = new User();
         model.addAttribute("users", users);
         return "create_account";
     }
 
     @PostMapping("/createNewAccount")
-    public String saveNewUser(@ModelAttribute("users") Users users){
+    public String saveNewUser(@ModelAttribute("users") User users){
         userService.saveUsers(users);
         return "redirect:/";
     }
 
     @GetMapping("/accounts/{id}")
     public String displayFormUpdates(@PathVariable(value = "id") long id, Model model){
-        Users users = userService.getUsersById(id);
+        User users = userService.getUsersById(id);
         model.addAttribute("users", users);
         return "update_users";
     }

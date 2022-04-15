@@ -8,7 +8,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -27,18 +27,18 @@ public class Users {
                     name = "users_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "roles_id", referencedColumnName = "id"))
-    private Collection<Roles> roles;
+    private Collection<Role> roles;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Long id, String username, String password) {
+    public User(Long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
 
-    public Users(Long id, String username, String password, Collection<Roles> roles) {
+    public User(Long id, String username, String password, Collection<Role> roles) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -69,11 +69,11 @@ public class Users {
         this.password = password;
     }
 
-    public Collection<Roles> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Roles> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 

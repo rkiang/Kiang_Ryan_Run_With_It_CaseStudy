@@ -25,18 +25,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
+//                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(
+                    .antMatchers(
                         "/register**",
                         "/js/**",
                         "/css/**",
                         "/img/**",
                         "/webjars/**").permitAll()
+                .antMatchers("/**").permitAll()
                 .mvcMatchers("/admin**", "/deleteUser/**").hasAnyRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/welcome", true)
                 .and()
                 .logout()
                 .invalidateHttpSession(true)
@@ -44,6 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
+
         // @formatter:on
     }
     @Override

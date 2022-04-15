@@ -56,9 +56,9 @@
         Welcome!
     </div>
     <div class="card-body">
-<!--        <div sec:authorize="isAuthenticated()">-->
-<!--            <span sec:authentication="name"></span>-->
-<!--        </div>-->
+        <div>
+            <span sec:authentication="principal.username">com.optum.runwithitapp.Models.User</span>
+        </div>
             <p class="card-text">Select a link below to view your pages.</p>
         <a href="workouts" class="btn btn-primary">Workouts</a>
         <a href="goals" class="btn btn-primary">Goals</a>

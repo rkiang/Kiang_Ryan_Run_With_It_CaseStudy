@@ -1,6 +1,6 @@
 package com.optum.runwithitapp.Services;
 
-import com.optum.runwithitapp.Models.Users;
+import com.optum.runwithitapp.Models.User;
 import com.optum.runwithitapp.Registration.UserRegistrationDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface UserService extends UserDetailsService {
 
-    Users findByUsername(String username);
+    User findByUsername(String username);
 
-    Users save(UserRegistrationDto registration);
+    User save(UserRegistrationDto registration);
 
-    List<Users> getAllUsers();
+    List<User> getAllUsers();
 
-    void saveUsers(Users users);
+    void saveUsers(User users);
 
-    Users getUsersById(long id);
+    User getUsersById(long id);
 
     void deleteUsersById(long id);
 
