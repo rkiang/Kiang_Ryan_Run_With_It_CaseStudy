@@ -11,7 +11,7 @@ import java.util.Collection;
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column(name="id")
     private Long id;
 
     @Column

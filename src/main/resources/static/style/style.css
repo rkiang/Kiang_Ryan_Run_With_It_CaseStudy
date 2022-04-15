@@ -3,7 +3,7 @@ body, .bg-light {
   font-weight: 100;
   background: linear-gradient(-45deg, #a62639, #db324d, #56494e ,#a29c9b ,#511c29);
 	background-size: 400% 400%;
-	animation: gradient 30s ease infinite;
+	animation: gradient 60s ease infinite;
 	height: 100vh;
 }
 
