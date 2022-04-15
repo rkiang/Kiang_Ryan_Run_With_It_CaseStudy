@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Models;
+package com.optum.runwithitapp.Security;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +39,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "com.optum.runwithitapp.Models.Role{" +
+        return "com.optum.runwithitapp.Security.Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

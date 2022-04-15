@@ -1,8 +1,5 @@
-package com.optum.runwithitapp.Controllers;
+package com.optum.runwithitapp.Security;
 
-import com.optum.runwithitapp.Models.User;
-import com.optum.runwithitapp.Repositories.UserRepository;
-import com.optum.runwithitapp.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,10 +68,10 @@ public class UsersController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/index")
-    public String login(){
-        return "exercise";
-    }
+//    @GetMapping("/index")
+//    public String login(){
+//        return "welcome";
+//    }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){

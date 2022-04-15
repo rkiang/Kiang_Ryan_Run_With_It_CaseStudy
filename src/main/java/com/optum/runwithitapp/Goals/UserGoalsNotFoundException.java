@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Goals;
 
 public class UserGoalsNotFoundException extends RuntimeException {
 }

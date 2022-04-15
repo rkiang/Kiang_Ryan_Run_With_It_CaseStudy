@@ -1,4 +1,6 @@
-package com.optum.runwithitapp.Models;
+package com.optum.runwithitapp.Workouts;
+
+import com.optum.runwithitapp.Security.User;
 
 import javax.persistence.*;
 import java.util.Date;

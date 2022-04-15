@@ -1,7 +1,5 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Security;
 
-import com.optum.runwithitapp.Models.User;
-import com.optum.runwithitapp.Registration.UserRegistrationDto;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

@@ -1,7 +1,5 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Workouts;
 
-import com.optum.runwithitapp.Models.Workouts;
-import com.optum.runwithitapp.Repositories.WorkoutsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Models;
+package com.optum.runwithitapp.Security;
 
 
 
@@ -79,7 +79,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "com.optum.runwithitapp.Models.User{" +
+        return "com.optum.runwithitapp.Security.User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + "*********" + '\'' +

@@ -1,10 +1,6 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Security;
 
 
-import com.optum.runwithitapp.Models.Role;
-import com.optum.runwithitapp.Models.User;
-import com.optum.runwithitapp.Registration.UserRegistrationDto;
-import com.optum.runwithitapp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

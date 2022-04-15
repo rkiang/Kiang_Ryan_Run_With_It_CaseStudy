@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Registration;
+package com.optum.runwithitapp.Security;
 
 
 import org.apache.struts.beanvalidation.constraints.FieldMatch;

@@ -1,6 +1,4 @@
-package com.optum.runwithitapp.Services;
-
-import com.optum.runwithitapp.Models.Workouts;
+package com.optum.runwithitapp.Workouts;
 
 import java.util.List;
 

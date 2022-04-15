@@ -1,9 +1,9 @@
-package com.optum.runwithitapp.Controllers;
+package com.optum.runwithitapp.Security;
 
 
-import com.optum.runwithitapp.Models.User;
-import com.optum.runwithitapp.Registration.UserRegistrationDto;
-import com.optum.runwithitapp.Services.UserService;
+import com.optum.runwithitapp.Security.User;
+import com.optum.runwithitapp.Security.UserRegistrationDto;
+import com.optum.runwithitapp.Security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

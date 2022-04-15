@@ -1,6 +1,6 @@
-package com.optum.runwithitapp.Repositories;
+package com.optum.runwithitapp.Security;
 
-import com.optum.runwithitapp.Models.User;
+import com.optum.runwithitapp.Security.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,5 @@
-package com.optum.runwithitapp.Controllers;
+package com.optum.runwithitapp.Goals;
 
-import com.optum.runwithitapp.Models.UserGoals;
-import com.optum.runwithitapp.Services.UserGoalsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

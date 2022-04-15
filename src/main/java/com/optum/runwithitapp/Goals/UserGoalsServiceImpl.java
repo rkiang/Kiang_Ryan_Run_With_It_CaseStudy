@@ -1,6 +1,5 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Goals;
 
-import com.optum.runwithitapp.Models.UserGoals;
 import com.optum.runwithitapp.Repositories.UserGoalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

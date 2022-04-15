@@ -1,6 +1,6 @@
-package com.optum.runwithitapp.Repositories;
+package com.optum.runwithitapp.Exercises;
 
-import com.optum.runwithitapp.Models.Exercises;
+import com.optum.runwithitapp.Exercises.Exercises;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

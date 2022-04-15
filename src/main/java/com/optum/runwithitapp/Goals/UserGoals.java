@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Models;
+package com.optum.runwithitapp.Goals;
 
 import javax.persistence.*;
 import java.util.Date;

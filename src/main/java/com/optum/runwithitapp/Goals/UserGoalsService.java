@@ -1,6 +1,6 @@
-package com.optum.runwithitapp.Services;
+package com.optum.runwithitapp.Goals;
 
-import com.optum.runwithitapp.Models.UserGoals;
+import com.optum.runwithitapp.Goals.UserGoals;
 
 import java.util.List;
 

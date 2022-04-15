@@ -1,13 +1,13 @@
 package com.optum.runwithitapp;
 
-import com.optum.runwithitapp.Controllers.ExercisesController;
-import com.optum.runwithitapp.Controllers.UserGoalsController;
-import com.optum.runwithitapp.Controllers.UsersController;
-import com.optum.runwithitapp.Controllers.WorkoutsController;
-import com.optum.runwithitapp.Services.ExerciseService;
-import com.optum.runwithitapp.Services.UserGoalsService;
-import com.optum.runwithitapp.Services.UserService;
-import com.optum.runwithitapp.Services.WorkoutsService;
+import com.optum.runwithitapp.Exercises.ExercisesController;
+import com.optum.runwithitapp.Goals.UserGoalsController;
+import com.optum.runwithitapp.Security.UsersController;
+import com.optum.runwithitapp.Workouts.WorkoutsController;
+import com.optum.runwithitapp.Exercises.ExerciseService;
+import com.optum.runwithitapp.Goals.UserGoalsService;
+import com.optum.runwithitapp.Security.UserService;
+import com.optum.runwithitapp.Workouts.WorkoutsService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

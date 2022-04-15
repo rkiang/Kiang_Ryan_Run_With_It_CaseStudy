@@ -1,7 +1,5 @@
-package com.optum.runwithitapp.Controllers;
+package com.optum.runwithitapp.Workouts;
 
-import com.optum.runwithitapp.Models.Workouts;
-import com.optum.runwithitapp.Services.WorkoutsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
