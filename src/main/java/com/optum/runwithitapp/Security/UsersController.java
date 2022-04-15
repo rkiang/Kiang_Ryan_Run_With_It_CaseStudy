@@ -20,9 +20,9 @@ public class UsersController {
 
     @GetMapping("/welcome")
     public String testing(Principal principal, Model model){
-        User users = userRepository.findByUsername(principal.getName());
+        User user = userRepository.findByUsername(principal.getName());
         model.addAttribute("username", principal.getName());
-        model.addAttribute("user", users.getUsername());
+        model.addAttribute("user", user.getUsername());
         return "welcome";
     }
 
@@ -44,8 +44,8 @@ public class UsersController {
 
     @GetMapping("/create")
     public String displayCreateAccountForm(Model model){
-        User users = new User();
-        model.addAttribute("users", users);
+        User user = new User();
+        model.addAttribute("user", user);
         return "create_account";
     }
 
@@ -57,8 +57,8 @@ public class UsersController {
 
     @GetMapping("/accounts/{id}")
     public String displayFormUpdates(@PathVariable(value = "id") long id, Model model){
-        User users = userService.getUsersById(id);
-        model.addAttribute("users", users);
+        User user = userService.getUsersById(id);
+        model.addAttribute("user", user);
         return "update_users";
     }
     @GetMapping("/deleteUser/{id}")

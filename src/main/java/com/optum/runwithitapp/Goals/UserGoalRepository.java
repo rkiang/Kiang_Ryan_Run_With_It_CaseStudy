@@ -1,4 +1,4 @@
-package com.optum.runwithitapp.Repositories;
+package com.optum.runwithitapp.Goals;
 
 import com.optum.runwithitapp.Goals.UserGoals;
 import org.springframework.data.jpa.repository.JpaRepository;
