@@ -36,41 +36,36 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping("/admin")
-    public String getAllUsers(Model model){
-        model.addAttribute("listUsers", userService.getAllUsers());
-        return "admin";
-    }
+//    @GetMapping("/admin")
+//    public String getAllUsers(Model model){
+//        model.addAttribute("listUsers", userService.getAllUsers());
+//        return "admin";
+//    }
 
     @GetMapping("/create")
     public String displayCreateAccountForm(Model model){
         User user = new User();
         model.addAttribute("user", user);
-        return "create_account";
+        return "registration";
     }
 
-    @PostMapping("/createNewAccount")
-    public String saveNewUser(@ModelAttribute("users") User users){
-        userService.saveUsers(users);
-        return "redirect:/";
-    }
-
-    @GetMapping("/accounts/{id}")
-    public String displayFormUpdates(@PathVariable(value = "id") long id, Model model){
-        User user = userService.getUsersById(id);
-        model.addAttribute("user", user);
-        return "update_users";
-    }
-    @GetMapping("/deleteUser/{id}")
-//    @DeleteMapping("/deleteUser/{id}")
-    public String deleteUsers(@PathVariable(value = "id") long id){
-        this.userService.deleteUsersById(id);
-        return "redirect:/admin";
-    }
-
-//    @GetMapping("/index")
-//    public String login(){
-//        return "welcome";
+//    @PostMapping("/createNewAccount")
+//    public String saveNewUser(@ModelAttribute("users") User users){
+//        userService.saveUsers(users);
+//        return "redirect:/";
+//    }
+//
+//    @GetMapping("/accounts/{id}")
+//    public String displayFormUpdates(@PathVariable(value = "id") long id, Model model){
+//        User user = userService.getUsersById(id);
+//        model.addAttribute("user", user);
+//        return "update_users";
+//    }
+//    @GetMapping("/deleteUser/{id}")
+////    @DeleteMapping("/deleteUser/{id}")
+//    public String deleteUsers(@PathVariable(value = "id") long id){
+//        this.userService.deleteUsersById(id);
+//        return "redirect:/admin";
 //    }
 
     @GetMapping("/logout")

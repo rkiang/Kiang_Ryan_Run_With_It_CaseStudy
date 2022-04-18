@@ -1,7 +1,5 @@
 package com.optum.runwithitapp.Security;
 
-import org.apache.struts.beanvalidation.constraints.impl.FieldMatchValidator;
-
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;

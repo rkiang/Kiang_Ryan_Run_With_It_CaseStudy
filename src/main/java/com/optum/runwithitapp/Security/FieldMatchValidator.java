@@ -9,7 +9,7 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
     private String firstFieldName;
     private String secondFieldName;
 
-    @Override   /*Checks that both email match and can be re-used for passwords too*/
+    @Override
     public void initialize(final FieldMatch constraintAnnotation) {
         firstFieldName = constraintAnnotation.first();
         secondFieldName = constraintAnnotation.second();
@@ -25,3 +25,4 @@ public class FieldMatchValidator implements ConstraintValidator<FieldMatch, Obje
         return true;
     }
 }
+

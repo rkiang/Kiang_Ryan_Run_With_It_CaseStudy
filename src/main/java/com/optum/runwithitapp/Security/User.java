@@ -1,28 +1,21 @@
 package com.optum.runwithitapp.Security;
 
-
-
-
 import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column
     private String username;
-
-    @Column
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
-            name = "user_role",
+            name = "users_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
@@ -32,14 +25,12 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String password) {
-        this.id = id;
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public User(Long id, String username, String password, Collection<Role> roles) {
-        this.id = id;
+    public User(String username, String password, Collection<Role> roles) {
         this.username = username;
         this.password = password;
         this.roles = roles;
@@ -87,3 +78,4 @@ public class User {
                 '}';
     }
 }
+

@@ -25,8 +25,8 @@ public class UserGoals {
     public UserGoals() {
     }
 
-    @OneToMany(mappedBy = "goals", targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private Set<User> user = new HashSet<>();
+//    @OneToMany(mappedBy = "goals", targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+//    private Set<User> user = new HashSet<>();
     public UserGoals(Long id, String goalName,
                      boolean completion, String goalSet, String goalCompleted) {
         this.id = id;
@@ -37,13 +37,13 @@ public class UserGoals {
     }
 
 
-    public Set<User> getUser() {
-        return user;
-    }
-
-    public void setUser(Set<User> user) {
-        this.user = user;
-    }
+//    public Set<User> getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(Set<User> user) {
+//        this.user = user;
+//    }
 
     public Long getId() {
         return id;

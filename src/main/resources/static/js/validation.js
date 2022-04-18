@@ -1,5 +1,5 @@
 function pswdVisible() {
-    var x = document.getElementById("inputPassword3");
+    var x = document.getElementById("password");
             var y = document.getElementById("inputPassword4");
 
     if (x.type  === "password") {

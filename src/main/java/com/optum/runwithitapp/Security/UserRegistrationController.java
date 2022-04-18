@@ -1,9 +1,5 @@
 package com.optum.runwithitapp.Security;
 
-
-import com.optum.runwithitapp.Security.User;
-import com.optum.runwithitapp.Security.UserRegistrationDto;
-import com.optum.runwithitapp.Security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,34 +12,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/register")
+@RequestMapping("/registration")
 public class UserRegistrationController {
 
     @Autowired
     private UserService userService;
 
-    @ModelAttribute("users")
-    public UserRegistrationDto userRegistrationDto(){
+    @ModelAttribute("user")
+    public UserRegistrationDto userRegistrationDto() {
         return new UserRegistrationDto();
     }
 
     @GetMapping
-    public String showRegistrationForm(Model model){
-        return "create_account";
+    public String showRegistrationForm(Model model) {
+        return "registration";
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("users") @Valid UserRegistrationDto userRegistrationDto,
-                                      BindingResult bindingResult){
-        User existing = userService.findByUsername((userRegistrationDto.getUsername()));
-        if(existing != null){
-            bindingResult.rejectValue("username", null, "Username already exists, try another username");
+    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
+
+        User existing = userService.findByUsername(userDto.getUsername());
+        if (existing != null){
+            result.rejectValue("username", null, "There is already an account registered with that email");
         }
-        if (bindingResult.hasErrors()){
-            return "create_account";
+
+        if (result.hasErrors()){
+            return "registration";
         }
-        userService.save(userRegistrationDto);
-//        return "redirect:/create_account?success";
-        return "redirect:/";
+
+        userService.save(userDto);
+        return "redirect:/registration?success";
     }
 }
+
