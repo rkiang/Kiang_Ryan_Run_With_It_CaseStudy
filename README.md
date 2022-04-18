@@ -1,5 +1,9 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
+- [Daily Progress](#Daily-Progress)
+- [User Stories](User-Stories)
+- 
+
 ## Daily Progress
 - **April 15th (70% complete)**
   - Working on fixing login
