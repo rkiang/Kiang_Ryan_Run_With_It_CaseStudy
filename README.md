@@ -1,13 +1,20 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
 - [Daily Progress](#Daily-Progress)
-- [User Stories](User-Stories)
-  - [Admin Stories](Admin-Stories)
-  - [Stretch Goals](Stretch-Goals)
-- [Database tables](DB-Tables)
+- [User Stories](#User-Stories)
+  - [Admin Stories](#Admin-Stories)
+  - [Stretch Goals](#Stretch-Goals)
+- [Database tables](#DB-Tables)
+- [Technical Architecture](#Techical-Architecture)
+- [Technical Challenges](#Technical-Challeneges)
+- [Lessons Learned](#Lessons-Learned)
+- [Wireframes](Kiang_Ryan_Wireframe.pdf)
 - [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) 
   - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Jira account.
 
+### Application will be a fitness tracking utility application.
+
+# Contents:
 ## Daily Progress
 - **April 15th (70% complete)**
   - Working on fixing login
@@ -26,9 +33,6 @@
   - About 50% complete with application MVP. 
   - A lot of the user stories below are smaller implementations.
   - Overall picture is clearer and coding is easier as I continue.
-
-
-### Application will be a fitness tracking utility application.
 
 ## User stories:
 - <strike>As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.</strike>
@@ -81,3 +85,15 @@
 | 1                      | deadlift                | weights                 | 
 | 2                      | leg press               | weights                 | 
 | 3                      | biking                  | cardio                  | 
+
+
+## Technical Architecture
+- Java, JPA
+- MySQL
+- JavaScript, Bootstrap
+
+## Technical Challenges
+- Creating custom user registration and login.
+
+## Lessons Learned
+- Project management, therefore I can complete tasks in easier and more manageable items
