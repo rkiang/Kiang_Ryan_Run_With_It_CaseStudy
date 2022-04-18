@@ -1,6 +1,5 @@
 package com.optum.runwithitapp.Security;
 
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
@@ -10,12 +9,37 @@ import javax.validation.constraints.NotEmpty;
 public class UserRegistrationDto {
 
     @NotEmpty
+    private String firstName;
+
+    @NotEmpty
+    private String lastName;
+
+    @NotEmpty
     private String password;
 
     @NotEmpty
     private String confirmPassword;
+
+    @Email
     @NotEmpty
-    private String username;
+    private String email;
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getPassword() {
         return password;
@@ -33,12 +57,12 @@ public class UserRegistrationDto {
         this.confirmPassword = confirmPassword;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

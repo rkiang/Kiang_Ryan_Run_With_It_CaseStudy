@@ -17,7 +17,9 @@
 # Contents:
 ## Daily Progress
 - **April 18th (75% complete)**
-  - Corrected issue with logging into account.
+  - **Landing page will need remapping, to start, go to /login** 
+  - Corrected issue with logging into account and registration.
+  - Adding goal functionality with dates.
 - **April 15th (70% complete)**
   - Working on fixing login
   - Likely scaling down to remove Exercise logic and implement to workouts and goals each.

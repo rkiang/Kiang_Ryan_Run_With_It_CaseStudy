@@ -13,9 +13,9 @@ public class MainController {
         return "index";
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public String login(Model model) {
-        return "welcome";
+        return "login";
     }
 
     @GetMapping("/user")

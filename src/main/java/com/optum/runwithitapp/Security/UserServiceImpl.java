@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,25 +26,27 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
-    public User findByUsername(String username){
-        return userRepository.findByUsername(username);
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
     }
 
     public User save(UserRegistrationDto registration){
         User user = new User();
-        user.setUsername(registration.getUsername());
+        user.setFirstName(registration.getFirstName());
+        user.setLastName(registration.getLastName());
+        user.setEmail(registration.getEmail());
         user.setPassword(passwordEncoder.encode(registration.getPassword()));
         user.setRoles(Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(user);
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(email);
         if (user == null){
             throw new UsernameNotFoundException("Invalid username or password.");
         }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
                 user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }
@@ -55,32 +56,5 @@ public class UserServiceImpl implements UserService {
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
     }
-
-//    @Override
-//    public List<User> getAllUsers() {
-//        return userRepository.findAll();
-//    }
-//
-//    @Override
-//    public void saveUsers(User users) {
-//        userRepository.save(users);
-//    }
-//
-//    @Override
-//    public User getUsersById(long id) {
-//        User users = userRepository.getById(id);
-//        if(users == null){
-//            try{
-//                throw new UserNotFoundException();
-//            } catch (UserNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        } return users;
-//    }
-//
-//    @Override
-//    public void deleteUsersById(long id) {
-//        userRepository.deleteById(id);
-//    }
 }
 

@@ -59,12 +59,12 @@
         <div>
             <span sec:authentication="principal.username">com.optum.runwithitapp.Security.User</span>
         </div>
-        <p class="card-text">Select a link below to view your pages.</p>
+            <p class="card-text">Select a link below to view your pages.</p>
         <a href="workouts" class="btn btn-primary">Workouts</a>
         <a href="goals" class="btn btn-primary">Goals</a>
         <a href="exercise" class="btn btn-primary">Exercises</a>
     </div>
-    <a class="btn btn-danger"sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
+            <a class="btn btn-danger"sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

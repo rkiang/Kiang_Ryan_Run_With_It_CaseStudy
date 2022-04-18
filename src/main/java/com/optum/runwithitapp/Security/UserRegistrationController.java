@@ -31,9 +31,9 @@ public class UserRegistrationController {
     @PostMapping
     public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
 
-        User existing = userService.findByUsername(userDto.getUsername());
+        User existing = userService.findByEmail(userDto.getEmail());
         if (existing != null){
-            result.rejectValue("username", null, "There is already an account registered with that email");
+            result.rejectValue("email", null, "There is already an account registered with that email");
         }
 
         if (result.hasErrors()){
@@ -41,7 +41,7 @@ public class UserRegistrationController {
         }
 
         userService.save(userDto);
-        return "redirect:/registration?success";
+        return "redirect:/";
     }
 }
 
