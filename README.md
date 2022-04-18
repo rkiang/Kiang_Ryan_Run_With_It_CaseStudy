@@ -9,13 +9,15 @@
 - [Technical Challenges](#Technical-Challeneges)
 - [Lessons Learned](#Lessons-Learned)
 - [Wireframes](Kiang_Ryan_Wireframe.pdf)
-- [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) 
+- [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) (External Site)
   - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Jira account.
 
 ### Application will be a fitness tracking utility application.
 
 # Contents:
 ## Daily Progress
+- **April 18th (75% complete)**
+  - Corrected issue with logging into account.
 - **April 15th (70% complete)**
   - Working on fixing login
   - Likely scaling down to remove Exercise logic and implement to workouts and goals each.
