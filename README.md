@@ -2,7 +2,11 @@
 
 - [Daily Progress](#Daily-Progress)
 - [User Stories](User-Stories)
-- 
+  - [Admin Stories](Admin-Stories)
+  - [Stretch Goals](Stretch-Goals)
+- [Database tables](DB-Tables)
+- [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) 
+  - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Jira account.
 
 ## Daily Progress
 - **April 15th (70% complete)**
@@ -26,14 +30,13 @@
 
 ### Application will be a fitness tracking utility application.
 
-#### User stories:
+## User stories:
 - <strike>As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.</strike>
 - As a user, I want to select which day of the week, so I may add/edit information about my workouts.
 - As a user, I want to create goals to work towards, so I can view the progress over time.
 - As a user, I want to add duration to cardio exercises, so I may view length of time my workouts last.
 - As a user, I want to add weight lifting exercises, so I may add reps/sets for each exercise.
 - As a user, I want to view and submit to a community board/page, so I may read about other users' tips and types of exercises.
-- [Stretch Goal] As a user, I want to view a community page with rating system and sort by too, so I may look at top-rated submissions over time.
 - As a user, I want to be able to rate other user's tips and exercise inputs, so I may submit my opinion. 
 - As a user, I want to add/edit/delete body weight submissions, so I may keep a log of my weight goals.
 - As a user, I want to add community exercises, so I may quickly add them to my goal or past workouts.
@@ -42,16 +45,21 @@
 - <strike>As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.</strike>
 - As a user, I want to name/rename my goals, so I can understand my own submissions to my liking.
 - <strike>As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.</strike>
-- [Stretch Goal] As a user, I want a personal account page, so I may edit my username and/or password credentials.
 - <strike>As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.</strike>
-- [Stretch Goal] As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
+
+## Admin Stories
 - As an Admin user, I want to be able to remove/delete posts in community page, so I can keep the page maintained and less cluttered.
 - As an Admin user, I want to view and modify users' account access rights, so I may create "moderator" accounts to manage the community page.
 - As a moderator user, I want edit options on the community page, so I may maintain the page.
+
+## Stretch Goals
+- [Stretch Goal] As a user, I want to view a community page with rating system and sort by too, so I may look at top-rated submissions over time.
+- [Stretch Goal] As a user, I want a personal account page, so I may edit my username and/or password credentials.
+- [Stretch Goal] As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
 - [Stretch Goal] As a user, I want to export workout days to create events in my Google Calendar, so I may have my schedule with my workout plan.
 
 
-### DB Tables
+## DB Tables
 #### User Account Table
 | userId<br/>Integer | userName<br/>String | password<br/>String | accessLevel<br/>String |
 |--------------------|---------------------|---------------------|------------------------|
