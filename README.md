@@ -16,9 +16,10 @@
 
 # Contents:
 ## Daily Progress
-- **April 19th (75% complete)**
+- **April 19th (80% complete)**
   - Landing page works as intended.
-  - Goals are posting correctly.
+  - Goals are posting correctly with logged in user's id in joined table.
+  - Goals are also displaying for only the logged in user.
 - **April 18th (75% complete)**
   - **Landing page will need remapping, to start, go to /login** 
   - Corrected issue with logging into account and registration.
