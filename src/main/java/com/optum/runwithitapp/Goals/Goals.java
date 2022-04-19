@@ -14,6 +14,7 @@ public class Goals {
 
     private String goalName;
 
+    @Column(columnDefinition = "boolean default false")
     private boolean completion = false;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
