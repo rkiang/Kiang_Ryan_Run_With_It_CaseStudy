@@ -20,29 +20,32 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http
                 .authorizeRequests()
-                    .antMatchers(
+                .antMatchers("/login").permitAll()
+                .antMatchers(
                         "/registration**",
                         "/js/**",
                         "/css/**",
                         "/img/**",
                         "/webjars/**").permitAll()
-                     .antMatchers("/**").permitAll()
-                     .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
+                .anyRequest().authenticated()
                 .and()
-                    .formLogin()
-                        .loginPage("/login").permitAll()
-                    .and()
-                        .logout()
-                            .invalidateHttpSession(true)
-                            .clearAuthentication(true)
-                            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                            .logoutSuccessUrl("/login?logout")
-                            .permitAll();
+                .formLogin()
+                .defaultSuccessUrl("/welcome")
+                .loginPage("/login").permitAll()
+                .and()
+                .logout()
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login?logout")
+                .logoutUrl("/")
+                .permitAll();
         // @formatter:on
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
+    public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(userService);
         return auth;

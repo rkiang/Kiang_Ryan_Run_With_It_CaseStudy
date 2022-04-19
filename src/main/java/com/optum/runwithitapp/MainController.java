@@ -5,11 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 
     @GetMapping("/")
-    public String root() {
+    public String index() {
         return "index";
     }
 
@@ -18,8 +21,15 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/user")
-    public String userIndex() {
-        return "user/index";
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request){
+        HttpSession httpSession = request.getSession();
+        httpSession.invalidate();
+        return "redirect:/";
     }
+
+//    @GetMapping("/user")
+//    public String userIndex() {
+//        return "user/index";
+//    }
 }
