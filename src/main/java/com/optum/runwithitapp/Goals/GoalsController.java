@@ -19,19 +19,19 @@ public class GoalsController {
 
     @GetMapping("/goals")
     public String getAllUserGoals(Model model){
-        model.addAttribute("listUserGoals", goalsService.getAllUserGoals());
+        model.addAttribute("listGoals", goalsService.getAllUserGoals());
         return "goals";
     }
 
     @GetMapping("/showGoals")
     public String showUserGoalsForm(Model model){
         Goals goals = new Goals();
-        model.addAttribute("userGoals", goals);
+        model.addAttribute("goals", goals);
         return "goals";
     }
 
     @PostMapping("/createGoals")
-    public String saveNewGoals(@ModelAttribute("userGoals") Goals goals){
+    public String saveNewGoals(@ModelAttribute("goals") Goals goals){
         goalsService.saveUserGoals(goals);
         return "redirect:/goals";
     }

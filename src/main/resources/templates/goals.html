@@ -37,13 +37,16 @@
                     <img th:src="@{assets/run_circle_white_24dp.svg}" src="../static/assets/run_circle_white_24dp.svg">
                     <span class="nav_name">Workouts</span> </a>
                 <a class="nav_link active">
-                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}" src="../static/assets/checklist_rtl_white_24dp.svg">
+                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}"
+                         src="../static/assets/checklist_rtl_white_24dp.svg">
                     <span class="nav_name">Goals</span> </a>
                 <a href="exercise" class="nav_link">
-                    <img th:src="@{assets/fitness_center_white_24dp.svg}" src="../static/assets/fitness_center_white_24dp.svg">
+                    <img th:src="@{assets/fitness_center_white_24dp.svg}"
+                         src="../static/assets/fitness_center_white_24dp.svg">
                     <span class="nav_name">Exercises</span> </a>
                 <a href="admin" class="nav_link">
-                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg">
+                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}"
+                         src="../static/assets/admin_panel_settings_white_24dp.svg">
                     <span class="nav_name">Settings</span>
                 </a>
             </div>
@@ -53,12 +56,12 @@
     </nav>
 </div>
 <!--Container Main start-->
-<div class="height-100 bg-light" style="padding-top: 15%;">
+<div class="height-100 bg-light">
     <!--    Main Components-->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Goals
     </button>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -67,10 +70,20 @@
                 </div>
                 <div class="modal-body">
                     <form action="#" th:action="@{/createGoals}" th:object="${goals}" method="POST">
+                        <div class="col-lg-3 col-sm-6">
+                            <label for="startDate">Set Date</label>
+                            <input field="*{goalSet}" name="goalSet" id="startDate" class="form-control" type="date"/>
+                            <span id="startDateSelected"></span>
+                        </div>
                         <div class="form-floating">
-                            <input field="*{goalName}" name="exerciseName" type="text" class="form-control"
-                                   id="floatingInput4" placeholder="Name">
-                            <label for="floatingInput4">Name</label>
+                            <input field="*{goalName}" name="goalName" type="text" class="form-control"
+                                   id="floatingInput4" placeholder="Goal Name">
+                            <label for="floatingInput4">Goal Name</label>
+                        </div>
+                        <div class="form-floating">
+                            <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
+                                   id="floatingInput10" placeholder="Exercise Name">
+                            <label for="floatingInput10">Exercise Name</label>
                         </div>
                         <div class="form-floating">
                             <select id="floatingType" class="form-select" aria-label="Default select example"
@@ -92,7 +105,7 @@
                             <label for="floatingInput6">Reps</label>
                         </div>
                         <div class="form-floating">
-                            <input field="*{weightAmount}" name="sets" type="number" class="form-control"
+                            <input field="*{weightAmount}" name="weightAmount" type="number" class="form-control"
                                    id="floatingInput7" placeholder="Weight Amount">
                             <label for="floatingInput7">Weight Amount</label>
                         </div>
@@ -102,7 +115,12 @@
                                    id="floatingInput8" placeholder="Duration">
                             <label for="floatingInput8">Duration</label>
                         </div>
-
+                        <div class="col-lg-3 col-sm-6">
+                            <label for="endDate">Expected Completion Date</label>
+                            <input field="*{goalCompleted}" name="goalCompleted" id="endDate" class="form-control"
+                                   type="date"/>
+                            <span id="endDateSelected"></span>
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Create</button>
@@ -112,7 +130,7 @@
             </div>
         </div>
     </div>
-    <table class="table align-middle mb-0 bg-white">
+    <table class="table align-middle mb-0 bg-white" style="padding-top: -15% !important">
         <thead class="bg-light">
         <tr>
             <th>Name</th>
@@ -128,14 +146,9 @@
         </thead>
         <tbody>
         <tr th:each="goals : ${listGoals}">
-            <td th:text="${goals.goalName}">
-                <!--                    <div class="d-flex align-items-center">-->
-                <!--                        <div class="ms-3">-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-            </td>
-            <td th:text="${goals.completion}"></td>
+            <td th:text="${goals.goalName}"></td>
             <td th:text="${goals.goalSet}"></td>
+            <td th:text="${goals.completion}"></td>
             <td th:text="${goals.goalCompleted}"></td>
             <td th:text="${goals.exerciseName}"></td>
             <td th:text="${goals.exerciseType}"></td>
@@ -155,46 +168,46 @@
                     <img th:src="@{assets/edit_white_24dp.svg}" src="../static/assets/edit_white_24dp.svg">
                 </button>
             </td>
-            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editModalLabel">Edit</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="#" th:action="@{/updatedExercises/{id}(id=${ex.id})}" th:object="${exercise}"
-                                  method="POST">
-                                <div class="form-floating">
-                                    <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
-                                           id="floatingInput1" placeholder="Name">
-                                    <label for="floatingInput1"></label>
-                                </div>
+            <!--            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+            <!--                <div class="modal-dialog">-->
+            <!--                    <div class="modal-content">-->
+            <!--                        <div class="modal-header">-->
+            <!--                            <h5 class="modal-title" id="editModalLabel">Edit</h5>-->
+            <!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+            <!--                        </div>-->
+            <!--                        <div class="modal-body">-->
+            <!--                            <form action="#" th:action="@{/updateGoals/{id}(id=${goals.id})}" th:object="${goals}"-->
+            <!--                                  method="POST">-->
+            <!--                                <div class="form-floating">-->
+            <!--                                    <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"-->
+            <!--                                           id="floatingInput1" placeholder="Name">-->
+            <!--                                    <label for="floatingInput1"></label>-->
+            <!--                                </div>-->
 
-                                <div class="form-floating">
-                                    <select id="floatingType1" class="form-select"
-                                            field="*{exerciseType}" name="exerciseType"><label>Type</label>
-                                        <option value="Cardio">Cardio</option>
-                                        <option value="Weights">Weights</option>
-                                    </select>
-                                    <!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
+            <!--                                <div class="form-floating">-->
+            <!--                                    <select id="floatingType1" class="form-select"-->
+            <!--                                            field="*{exerciseType}" name="exerciseType"><label>Type</label>-->
+            <!--                                        <option value="Cardio">Cardio</option>-->
+            <!--                                        <option value="Weights">Weights</option>-->
+            <!--                                    </select>-->
+            <!--                                    &lt;!&ndash;                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">&ndash;&gt;-->
 
-                                </div>
+            <!--                                </div>-->
 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard
-                                        Changes
-                                    </button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--                                <div class="modal-footer">-->
+            <!--                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard-->
+            <!--                                        Changes-->
+            <!--                                    </button>-->
+            <!--                                    <button type="submit" class="btn btn-primary">Save</button>-->
+            <!--                                </div>-->
+            <!--                            </form>-->
+            <!--                        </div>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
 
             <td>
-                <a th:href="@{/deleteExercises/{id}(id=${ex.id})}" class="btn btn-danger btn-lg btn-rounded">
+                <a th:href="@{/deleteGoals/{id}(id=${goals.id})}" class="btn btn-danger btn-lg btn-rounded">
                     <img th:src="@{assets/delete_outline_white_24dp.svg}"
                          src="../static/assets/delete_outline_white_24dp.svg">
                 </a>

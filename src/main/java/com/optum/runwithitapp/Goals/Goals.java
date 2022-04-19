@@ -1,6 +1,9 @@
 package com.optum.runwithitapp.Goals;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "goals")
@@ -13,16 +16,17 @@ public class Goals {
 
     private boolean completion = false;
 
-    private String goalSet;
-//    @DateTimeFormat(pattern="yyyy-MM-dd")
-//    @Temporal(TemporalType.DATE)
-//    private Date deliveryDate;
-//
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date goalSet;
+
 //    @DateTimeFormat(pattern="HH:mm")
 //    @Temporal(TemporalType.TIME)
 //    private Date kitchenReadyTime;
 
-    private String goalCompleted;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date goalCompleted;
 
     private String exerciseName;
     private String exerciseType;
@@ -47,11 +51,8 @@ public class Goals {
 //    }
 
 
-
-
-    public Goals(Long id, String goalName,
-                 boolean completion, String goalSet,
-                 String goalCompleted, String exerciseName,
+    public Goals(Long id, String goalName, boolean completion,
+                 Date goalSet, Date goalCompleted, String exerciseName,
                  String exerciseType, Integer sets, Integer reps,
                  Integer weightAmount, Integer duration) {
         this.id = id;
@@ -139,19 +140,19 @@ public class Goals {
         this.completion = completion;
     }
 
-    public String getGoalSet() {
+    public Date getGoalSet() {
         return goalSet;
     }
 
-    public void setGoalSet(String goalSet) {
+    public void setGoalSet(Date goalSet) {
         this.goalSet = goalSet;
     }
 
-    public String getGoalCompleted() {
+    public Date getGoalCompleted() {
         return goalCompleted;
     }
 
-    public void setGoalCompleted(String goalCompleted) {
+    public void setGoalCompleted(Date goalCompleted) {
         this.goalCompleted = goalCompleted;
     }
 }
