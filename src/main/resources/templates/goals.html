@@ -57,6 +57,9 @@
 </div>
 <!--Container Main start-->
 <div class="height-100 bg-light">
+    <div>
+        <span sec:authentication="principal.username">com.optum.runwithitapp.Security.User</span>
+    </div>
     <!--    Main Components-->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Goals
@@ -69,7 +72,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" th:action="@{/createGoals}" th:object="${goals}" method="POST">
+                    <form action="#" th:action="@{/createGoals/{email}(email=${username})}" th:object="${goals}" method="POST">
                         <div class="col-lg-3 col-sm-6">
                             <label for="startDate">Set Date</label>
                             <input field="*{goalSet}" name="goalSet" id="startDate" class="form-control" type="date"/>

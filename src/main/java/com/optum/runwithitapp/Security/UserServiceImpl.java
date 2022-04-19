@@ -26,6 +26,9 @@ public class UserServiceImpl implements UserService {
         this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 
+    public User saveUserInfo(User user){
+        return userRepository.save(user);
+    }
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }

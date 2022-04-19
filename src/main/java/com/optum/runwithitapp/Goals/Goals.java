@@ -1,9 +1,10 @@
 package com.optum.runwithitapp.Goals;
 
+import com.optum.runwithitapp.Security.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name = "goals")
@@ -21,10 +22,6 @@ public class Goals {
     @Temporal(TemporalType.DATE)
     private Date goalSet;
 
-//    @DateTimeFormat(pattern="HH:mm")
-//    @Temporal(TemporalType.TIME)
-//    private Date kitchenReadyTime;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date goalCompleted;
@@ -39,21 +36,9 @@ public class Goals {
     public Goals() {
     }
 
-//    @OneToMany(mappedBy = "goals", targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//    private Set<User> user = new HashSet<>();
-
-
-//    public Set<User> getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(Set<User> user) {
-//        this.user = user;
-//    }
-
-
-    public Goals(Long id, String goalName, boolean completion,
-                 Date goalSet, Date goalCompleted, String exerciseName,
+    public Goals(Long id, String goalName,
+                 boolean completion, Date goalSet,
+                 Date goalCompleted, String exerciseName,
                  String exerciseType, Integer sets, Integer reps,
                  Integer weightAmount, Integer duration) {
         this.id = id;

@@ -1,7 +1,12 @@
 package com.optum.runwithitapp.Security;
 
+import com.optum.runwithitapp.Goals.Goals;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -9,12 +14,33 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @NotNull
     private Long id;
 
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+
+    @OneToMany(targetEntity = Goals.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Goals> goals = new HashSet<>();
+
+    public User(String firstName, String lastName, String email, String password, Set<Goals> goals, Collection<Role> roles) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.goals = goals;
+        this.roles = roles;
+    }
+
+    public Set<Goals> getGoals() {
+        return goals;
+    }
+
+    public void setGoals(Set<Goals> goals) {
+        this.goals = goals;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -35,13 +61,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.roles = roles;
-    }
+//    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.password = password;
+//        this.roles = roles;
+//    }
 
     public Long getId() {
         return id;
