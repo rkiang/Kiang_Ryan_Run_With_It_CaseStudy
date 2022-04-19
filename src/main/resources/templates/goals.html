@@ -130,7 +130,7 @@
             </div>
         </div>
     </div>
-    <table class="table align-middle mb-0 bg-white" style="padding-top: -15% !important">
+    <table class="table align-middle mb-0 bg-white" style="margin-top: -850px;">
         <thead class="bg-light">
         <tr>
             <th>Name</th>
@@ -142,6 +142,8 @@
             <th>Reps</th>
             <th>Weight Amount</th>
             <th>Duration</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -156,12 +158,6 @@
             <td th:text="${goals.reps}"></td>
             <td th:text="${goals.weightAmount}"></td>
             <td th:text="${goals.duration}"></td>
-            <td>
-                <button type="button" class="btn btn-success btn-lg btn-rounded">
-                    <img th:src="@{assets/add_circle_white_24dp.svg}"
-                         src="../static/assets/add_circle_white_24dp.svg">
-                </button>
-            </td>
             <td>
                 <button type="button" class="btn btn-primary btn-lg btn-rounded"
                         data-bs-toggle="modal" data-bs-target="#editModal">
