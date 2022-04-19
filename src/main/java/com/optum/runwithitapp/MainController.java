@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 public class MainController {
 
     @GetMapping("/")
-    public String index() {
-        return "index";
+    public String root() {
+        return "login";
     }
 
     @GetMapping("/login")
@@ -21,12 +21,12 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
-        HttpSession httpSession = request.getSession();
-        httpSession.invalidate();
-        return "redirect:/";
-    }
+//    @GetMapping("/logout")
+//    public String logout(HttpServletRequest request){
+//        HttpSession httpSession = request.getSession();
+//        httpSession.invalidate();
+//        return "redirect:/";
+//    }
 
 //    @GetMapping("/user")
 //    public String userIndex() {

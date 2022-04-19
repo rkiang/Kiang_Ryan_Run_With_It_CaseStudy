@@ -20,7 +20,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http
                 .authorizeRequests()
-                .antMatchers("/login").permitAll()
                 .antMatchers(
                         "/registration**",
                         "/js/**",
@@ -39,7 +38,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login?logout")
-                .logoutUrl("/")
+//                .logoutUrl("/")
                 .permitAll();
         // @formatter:on
     }
