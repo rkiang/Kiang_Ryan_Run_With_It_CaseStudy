@@ -1,14 +1,15 @@
 package com.optum.runwithitapp.Goals;
 
+import com.optum.runwithitapp.Security.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 
 @Service
 public class GoalsServiceImpl implements GoalsService {
     private GoalsRepository goalsRepository;
-
     @Autowired
     public GoalsServiceImpl(GoalsRepository goalsRepository){
         this.goalsRepository = goalsRepository;

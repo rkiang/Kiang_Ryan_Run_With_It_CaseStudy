@@ -26,11 +26,11 @@ public class GoalsController {
 
     @GetMapping("/goals")
     public String getAllUserGoals(Principal principal, Model model){
-        model.addAttribute("listGoals", goalsService.getAllUserGoals());
         User user = userService.findByEmail(principal.getName());
         model.addAttribute("username", principal.getName());
         Goals goals = new Goals();
         model.addAttribute("goals", goals);
+        model.addAttribute("listGoals", user.getGoals());
 
         return "goals";
     }
@@ -50,7 +50,7 @@ public class GoalsController {
                                    @ModelAttribute("goals") Goals goals){
         goalsService.saveUserGoals(goals);
         User user = userService.findByEmail(email);
-        System.out.println("EMAIL!!!!!!!:"+email);
+//        System.out.println("EMAIL!!!!!!!:"+email);
         user.getGoals().add(goals);
         userService.saveUserInfo(user);
         return "redirect:/goals";
