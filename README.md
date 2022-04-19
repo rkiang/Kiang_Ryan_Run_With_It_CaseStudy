@@ -16,6 +16,9 @@
 
 # Contents:
 ## Daily Progress
+- **April 19th (75% complete)**
+  - Landing page works as intended.
+  - Goals are posting correctly.
 - **April 18th (75% complete)**
   - **Landing page will need remapping, to start, go to /login** 
   - Corrected issue with logging into account and registration.
