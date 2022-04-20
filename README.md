@@ -16,6 +16,8 @@
 
 # Contents:
 ## Daily Progress
+- **April 20th (80-85% complete)**
+  - 
 - **April 19th (80% complete)**
   - Landing page works as intended.
   - Goals are posting correctly with logged in user's id in joined table.

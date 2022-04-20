@@ -17,7 +17,8 @@
 <body id="body-pd">
 <header class="header" id="header">
     <div class="header_toggle"><i class='bx bx-menu' id="header-toggle" style="color:#ffff;"></i></div>
-    <img th:src="@{assets/Run With It-logos_transparent.png}" src="../static/assets/Run With It-logos_transparent.png"
+    <img th:src="@{assets/Run With It-logos_transparent-cut.png}"
+         src="../static/assets/Run With It-logos_transparent-cut.png"
          id="logo" alt="Run With It">
 </header>
 <div class="l-navbar" id="nav-bar">
@@ -33,13 +34,16 @@
                     <img th:src="@{assets/run_circle_white_24dp.svg}" src="../static/assets/run_circle_white_24dp.svg">
                     <span class="nav_name">Workouts</span> </a>
                 <a href="goals" class="nav_link">
-                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}" src="../static/assets/checklist_rtl_white_24dp.svg">
+                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}"
+                         src="../static/assets/checklist_rtl_white_24dp.svg">
                     <span class="nav_name">Goals</span> </a>
                 <a href="exercise" class="nav_link">
-                    <img th:src="@{assets/fitness_center_white_24dp.svg}" src="../static/assets/fitness_center_white_24dp.svg">
+                    <img th:src="@{assets/fitness_center_white_24dp.svg}"
+                         src="../static/assets/fitness_center_white_24dp.svg">
                     <span class="nav_name">Exercises</span> </a>
                 <a href="admin" class="nav_link">
-                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg">
+                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}"
+                         src="../static/assets/admin_panel_settings_white_24dp.svg">
                     <span class="nav_name">Settings</span>
                 </a>
             </div>
@@ -49,72 +53,74 @@
     </nav>
 </div>
 <br>
-<h3 style="padding-top:30px">Create Account</h3>
-<h1></h1>
-<form th:action="@{/registration}" th:object="${user}" method="post">
-    <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
-       th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
-        error</p>
-    <div class="row mb-3"
-         th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
-        <label for="firstName" class="control-label">First name</label> <input
-            id="firstName" class="form-control" th:field="*{firstName}" />
-        <p class="error-message"
-           th:each="error: ${#fields.errors('firstName')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div class="row mb-3"
-         th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
-        <label for="lastName" class="control-label">Last name</label> <input
-            id="lastName" class="form-control" th:field="*{lastName}" />
-        <p class="error-message"
-           th:each="error : ${#fields.errors('lastName')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div class="row mb-3"
-         th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
-        <label for="email" class="control-label">E-mail</label> <input
-            id="email" class="form-control" th:field="*{email}" />
-        <p class="error-message"
-           th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation
+<div class="card-body col-sm-3" style="margin-top:5%;margin-left:35%;">
+    <h2 class="card-title" style="color:white;">Register your new account</h2>
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+        <p class="error-message" th:if="${#fields.hasGlobalErrors()}"
+           th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
             error</p>
-    </div>
-    <div class="row mb-3"
-         th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
-        <label for="password" class="control-label">Password</label> <input
-            id="password" class="form-control" type="password"
-            th:field="*{password}" />
-        <p class="error-message"
-           th:each="error : ${#fields.errors('password')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div class="row mb-3"
-         th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
-        <label for="confirmPassword" class="control-label">Confirm
-            password</label> <input id="confirmPassword" class="form-control"
-                                    type="password" th:field="*{confirmPassword}" />
-        <p class="error-message"
-           th:each="error : ${#fields.errors('confirmPassword')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div class="row mb-3">
-        <label for="password" class="col-sm-2 col-form-label"></label>
-        <div class="col-sm-10">
-            <input style="display:inline" type="checkbox" onclick="pswdVisible()"> Show Password
+        <div class="form-floating" th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
+            <input th:field="*{firstName}" name="firstName" type="text" class="form-control"
+                   id="floatingInput4" placeholder="First Name">
+            <label for="floatingInput4" class="control-label">First Name</label>
+
+            <p class="error-message"
+               th:each="error: ${#fields.errors('firstName')}"
+               th:text="${error}">Validation error</p>
         </div>
-    </div>
-    <br>
-    <div class="form-group">
-        <button type="submit" class="btn btn-success">Register</button>
-        <span>Already registered? <a href="/" th:href="@{/}">Login
+        <div class="form-floating" th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
+            <input th:field="*{lastName}" name="lastName" type="text" class="form-control"
+                   id="floatingInput413" placeholder="First Name">
+            <label for="floatingInput413" class="control-label">Last Name</label>
+
+            <p class="error-message"
+               th:each="error: ${#fields.errors('lastName')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div class="form-floating" th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+            <input th:field="*{email}" name="email" type="text" class="form-control"
+                   id="floatingInput42" placeholder="E-mail">
+            <label for="floatingInput42" class="control-label">E-mail</label>
+
+            <p class="error-message"
+               th:each="error: ${#fields.errors('email')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div class="form-floating" th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+            <input th:field="*{password}" name="password" type="password" class="form-control"
+                   id="password" placeholder="Password">
+            <label for="password" class="control-label">Password</label>
+
+            <p class="error-message"
+               th:each="error: ${#fields.errors('password')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div class="form-floating" th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+            <input th:field="*{confirmPassword}" name="confirmPassword" type="password" class="form-control"
+                   id="confirmPassword" placeholder="Confirm Password">
+            <label for="confirmPassword" class="control-label">Confirm Password</label>
+
+            <p class="error-message"
+               th:each="error: ${#fields.errors('confirmPassword')}"
+               th:text="${error}">Validation error</p>
+        </div>
+        <div class="row mb-3">
+            <label for="password" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input style="display:inline;" type="checkbox" onclick="pswdVisible()">
+                <span style="color:white">Show Password</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Register</button>
+            <span style="color:white;">Already registered? <a href="/" th:href="@{/}">Login
                        here</a></span>
-    </div>
-</form>
-<!-- <h4><a link href="registration.html">Create Account</a></h4> -->
-<label></label>
+        </div>
+    </form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"></script>
 
 </body>
 </html>
