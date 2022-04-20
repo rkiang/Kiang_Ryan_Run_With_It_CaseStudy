@@ -14,7 +14,6 @@ public class Workouts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String workoutName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date workoutDate;
@@ -31,13 +30,12 @@ public class Workouts {
     public Workouts() {
     }
 
-    public Workouts(Long id, String workoutName,
+    public Workouts(Long id,
                     Date workoutDate, String exerciseName,
                     String exerciseType, Integer sets,
                     Integer reps, Integer weightAmount,
                     Date duration) {
         this.id = id;
-        this.workoutName = workoutName;
         this.workoutDate = workoutDate;
         this.exerciseName = exerciseName;
         this.exerciseType = exerciseType;
@@ -53,14 +51,6 @@ public class Workouts {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getWorkoutName() {
-        return workoutName;
-    }
-
-    public void setWorkoutName(String workoutName) {
-        this.workoutName = workoutName;
     }
 
     public Date getWorkoutDate() {

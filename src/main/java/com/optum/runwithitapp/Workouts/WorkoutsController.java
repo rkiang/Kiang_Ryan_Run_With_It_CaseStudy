@@ -20,18 +20,19 @@ public class WorkoutsController {
     public WorkoutsController() {
     }
 
+    @Autowired
     public WorkoutsController(WorkoutsService workoutsService, UserService userService) {
         this.workoutsService = workoutsService;
         this.userService = userService;
     }
 
     @GetMapping("/workouts")
-    public String getAllWorkouts(Principal principal, Model model){
+    public String getAllWorkouts(Principal principal, Model model) {
         User user = userService.findByEmail(principal.getName());
         model.addAttribute("username", principal.getName());
         Workouts workouts = new Workouts();
         model.addAttribute("workouts", workouts);
-        model.addAttribute("listWorkouts", workoutsService.getAllWorkouts());
+        model.addAttribute("listWorkouts", user.getWorkouts());
         return "workouts";
     }
 
@@ -42,22 +43,23 @@ public class WorkoutsController {
 
     @PostMapping("/createWorkouts/{email}")
     public String saveNewWorkouts(@PathVariable("email") String email,
-                                  @ModelAttribute("workouts") Workouts workouts){
+                                  @ModelAttribute("workouts") Workouts workouts) {
         workoutsService.saveWorkouts(workouts);
         User user = userService.findByEmail(email);
         user.getWorkouts().add(workouts);
+        userService.saveUserInfo(user);
         return "redirect:/workouts";
     }
 
     @PostMapping("/updateWorkouts/{id}")
     public String updateWorkouts(@PathVariable("id") long id, Workouts workouts,
-                                 Model model){
+                                 Model model) {
         workoutsService.saveWorkouts(workouts);
         return "redirect:/workouts";
     }
 
     @GetMapping("/deleteWorkouts/{id}")
-    public String deleteWorkouts(@PathVariable(value = "id") long id){
+    public String deleteWorkouts(@PathVariable(value = "id") long id) {
         this.workoutsService.deleteWorkoutsById(id);
         return "redirect:/workouts";
     }
