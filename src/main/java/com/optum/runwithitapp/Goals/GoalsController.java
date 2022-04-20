@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class GoalsController {
@@ -64,7 +65,13 @@ public class GoalsController {
     }
 
     @GetMapping("/deleteGoals/{id}")
-    public String deleteGoals(@PathVariable(value = "id") long id){
+    public String deleteGoals(@PathVariable(value = "id") long id,
+                              Principal principal){
+        User user = userService.findByEmail(principal.getName());
+        Set<Goals> goals = user.getGoals();
+        Goals goalsById = goalsService.getUserGoalsById(id);
+        goals.remove(goalsById);
+        userService.saveUserInfo(user);
         this.goalsService.deleteUserGoalsById(id);
         return "redirect:/goals";
     }
