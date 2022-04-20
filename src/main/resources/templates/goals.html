@@ -72,7 +72,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" th:action="@{/createGoals/{email}(email=${username})}" th:object="${goals}" method="POST">
+                    <form action="#" th:action="@{/createGoals/{email}(email=${username})}" th:object="${goals}"
+                          method="POST">
                         <div class="col-lg-3 col-sm-6">
                             <label for="startDate">Set Date</label>
                             <input field="*{goalSet}" name="goalSet" id="startDate" class="form-control" type="date"/>
@@ -94,7 +95,6 @@
                                 <option value="Cardio">Cardio</option>
                                 <option value="Weights">Weights</option>
                             </select>
-                            <!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
                             <label for="floatingType">Type</label>
                         </div>
                         <div class="form-floating">
@@ -167,43 +167,76 @@
                     <img th:src="@{assets/edit_white_24dp.svg}" src="../static/assets/edit_white_24dp.svg">
                 </button>
             </td>
-            <!--            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-            <!--                <div class="modal-dialog">-->
-            <!--                    <div class="modal-content">-->
-            <!--                        <div class="modal-header">-->
-            <!--                            <h5 class="modal-title" id="editModalLabel">Edit</h5>-->
-            <!--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-            <!--                        </div>-->
-            <!--                        <div class="modal-body">-->
-            <!--                            <form action="#" th:action="@{/updateGoals/{id}(id=${goals.id})}" th:object="${goals}"-->
-            <!--                                  method="POST">-->
-            <!--                                <div class="form-floating">-->
-            <!--                                    <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"-->
-            <!--                                           id="floatingInput1" placeholder="Name">-->
-            <!--                                    <label for="floatingInput1"></label>-->
-            <!--                                </div>-->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Edit</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#" th:action="@{/updateGoals/{id}(id=${goals.id})}" th:object="${goals}"
+                                  method="POST">
+                                <div class="col-lg-3 col-sm-6">
+                                    <label for="startDate1">Set Date</label>
+                                    <input field="*{goalSet}" name="goalSet" id="startDate1" class="form-control" type="date"/>
+                                    <span id="startDateSelected1"></span>
+                                </div>
+                                <div class="form-floating">
+                                    <input field="*{goalName}" name="goalName" type="text" class="form-control"
+                                           id="floatingInput41" placeholder="Goal Name">
+                                    <label for="floatingInput41">Goal Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
+                                           id="floatingInput101" placeholder="Exercise Name">
+                                    <label for="floatingInput101">Exercise Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <select id="floatingType1" class="form-select" aria-label="Default select example"
+                                            field="*{exerciseType}" name="exerciseType" placeholder="Type">
+                                        <option value="Cardio">Cardio</option>
+                                        <option value="Weights">Weights</option>
+                                    </select>
+                                    <label for="floatingType1">Type</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input field="*{sets}" name="sets" type="number" class="form-control"
+                                           id="floatingInput51" placeholder="Sets">
+                                    <label for="floatingInput51">Sets</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input field="*{reps}" name="reps" type="number" class="form-control"
+                                           id="floatingInput61" placeholder="Reps">
+                                    <label for="floatingInput61">Reps</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input field="*{weightAmount}" name="weightAmount" type="number" class="form-control"
+                                           id="floatingInput71" placeholder="Weight Amount">
+                                    <label for="floatingInput71">Weight Amount</label>
+                                </div>
 
-            <!--                                <div class="form-floating">-->
-            <!--                                    <select id="floatingType1" class="form-select"-->
-            <!--                                            field="*{exerciseType}" name="exerciseType"><label>Type</label>-->
-            <!--                                        <option value="Cardio">Cardio</option>-->
-            <!--                                        <option value="Weights">Weights</option>-->
-            <!--                                    </select>-->
-            <!--                                    &lt;!&ndash;                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">&ndash;&gt;-->
-
-            <!--                                </div>-->
-
-            <!--                                <div class="modal-footer">-->
-            <!--                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard-->
-            <!--                                        Changes-->
-            <!--                                    </button>-->
-            <!--                                    <button type="submit" class="btn btn-primary">Save</button>-->
-            <!--                                </div>-->
-            <!--                            </form>-->
-            <!--                        </div>-->
-            <!--                    </div>-->
-            <!--                </div>-->
-            <!--            </div>-->
+                                <div class="form-floating">
+                                    <input field="*{duration}" name="duration" type="number" class="form-control"
+                                           id="floatingInput81" placeholder="Duration">
+                                    <label for="floatingInput81">Duration</label>
+                                </div>
+                                <div class="col-lg-3 col-sm-6">
+                                    <label for="endDate1">Expected Completion Date</label>
+                                    <input field="*{goalCompleted}" name="goalCompleted" id="endDate1" class="form-control"
+                                           type="date"/>
+                                    <span id="endDateSelected1"></span>
+                                </div>                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard
+                                        Changes
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <td>
                 <a th:href="@{/deleteGoals/{id}(id=${goals.id})}" class="btn btn-danger btn-lg btn-rounded">
