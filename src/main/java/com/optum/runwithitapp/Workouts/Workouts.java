@@ -1,6 +1,7 @@
 package com.optum.runwithitapp.Workouts;
 
 import com.optum.runwithitapp.Security.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +15,8 @@ public class Workouts {
     private Long id;
 
     private String workoutName;
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
     private Date workoutDate;
 
     private String exerciseName;
@@ -22,18 +24,18 @@ public class Workouts {
     private Integer sets;
     private Integer reps;
     private Integer weightAmount;
-    private Integer duration;
-
-    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-    private List<User> usersWorkouts;
+    @DateTimeFormat(pattern = "HH:mm")
+    @Temporal(TemporalType.TIME)
+    private Date duration;
 
     public Workouts() {
     }
 
-    public Workouts(Long id, String workoutName, Date workoutDate,
-                    String exerciseName, String exerciseType, Integer sets,
-                    Integer reps, Integer weightAmount, Integer duration,
-                    List<User> usersWorkouts) {
+    public Workouts(Long id, String workoutName,
+                    Date workoutDate, String exerciseName,
+                    String exerciseType, Integer sets,
+                    Integer reps, Integer weightAmount,
+                    Date duration) {
         this.id = id;
         this.workoutName = workoutName;
         this.workoutDate = workoutDate;
@@ -43,15 +45,6 @@ public class Workouts {
         this.reps = reps;
         this.weightAmount = weightAmount;
         this.duration = duration;
-        this.usersWorkouts = usersWorkouts;
-    }
-
-    public List<User> getUsersWorkouts() {
-        return usersWorkouts;
-    }
-
-    public void setUsersWorkouts(List<User> usersWorkouts) {
-        this.usersWorkouts = usersWorkouts;
     }
 
     public Long getId() {
@@ -118,11 +111,11 @@ public class Workouts {
         this.weightAmount = weightAmount;
     }
 
-    public Integer getDuration() {
+    public Date getDuration() {
         return duration;
     }
 
-    public void setDuration(Integer duration) {
+    public void setDuration(Date duration) {
         this.duration = duration;
     }
 }

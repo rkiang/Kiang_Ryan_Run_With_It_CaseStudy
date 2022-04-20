@@ -1,5 +1,7 @@
 package com.optum.runwithitapp.Workouts;
 
+import com.optum.runwithitapp.Security.User;
+import com.optum.runwithitapp.Security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,32 +10,42 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+
 @Controller
 public class WorkoutsController {
     private WorkoutsService workoutsService;
+    private UserService userService;
 
     public WorkoutsController() {
     }
 
-    @Autowired
-    public WorkoutsController(WorkoutsService workoutsService) {
+    public WorkoutsController(WorkoutsService workoutsService, UserService userService) {
         this.workoutsService = workoutsService;
+        this.userService = userService;
     }
 
     @GetMapping("/workouts")
-    public String getAllWorkouts(Model model){
+    public String getAllWorkouts(Principal principal, Model model){
+        User user = userService.findByEmail(principal.getName());
+        model.addAttribute("username", principal.getName());
+        Workouts workouts = new Workouts();
+        model.addAttribute("workouts", workouts);
         model.addAttribute("listWorkouts", workoutsService.getAllWorkouts());
         return "workouts";
     }
 
-    @GetMapping("/showWorkouts")
-    public String showWorkoutForm(Model model){
-        return "workouts";
-    }
+//    @GetMapping("/showWorkouts")
+//    public String showWorkoutForm(Model model){
+//        return "workouts";
+//    }
 
-    @PostMapping("/createWorkouts")
-    public String saveNewWorkouts(@ModelAttribute("workouts") Workouts workouts){
+    @PostMapping("/createWorkouts/{email}")
+    public String saveNewWorkouts(@PathVariable("email") String email,
+                                  @ModelAttribute("workouts") Workouts workouts){
         workoutsService.saveWorkouts(workouts);
+        User user = userService.findByEmail(email);
+        user.getWorkouts().add(workouts);
         return "redirect:/workouts";
     }
 

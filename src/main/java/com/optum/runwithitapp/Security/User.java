@@ -1,6 +1,7 @@
 package com.optum.runwithitapp.Security;
 
 import com.optum.runwithitapp.Goals.Goals;
+import com.optum.runwithitapp.Workouts.Workouts;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -25,13 +26,27 @@ public class User {
     @OneToMany(targetEntity = Goals.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Goals> goals = new HashSet<>();
 
-    public User(String firstName, String lastName, String email, String password, Set<Goals> goals, Collection<Role> roles) {
+    @OneToMany(targetEntity = Workouts.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Workouts> workouts = new HashSet<>();
+
+    public User(String firstName, String lastName,
+                String email, String password, Set<Goals> goals,
+                Set<Workouts> workouts, Collection<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.goals = goals;
+        this.workouts = workouts;
         this.roles = roles;
+    }
+
+    public Set<Workouts> getWorkouts() {
+        return workouts;
+    }
+
+    public void setWorkouts(Set<Workouts> workouts) {
+        this.workouts = workouts;
     }
 
     public Set<Goals> getGoals() {
@@ -61,13 +76,6 @@ public class User {
         this.password = password;
     }
 
-//    public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.password = password;
-//        this.roles = roles;
-//    }
 
     public Long getId() {
         return id;
