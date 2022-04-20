@@ -17,7 +17,9 @@
 # Contents:
 ## Daily Progress
 - **April 20th (80-85% complete)**
-  - 
+  - Able to update and delete on controllers.
+  - Cannot update successfully for user account yet.
+  - Need to do custom queries next.
 - **April 19th (80% complete)**
   - Landing page works as intended.
   - Goals are posting correctly with logged in user's id in joined table.
