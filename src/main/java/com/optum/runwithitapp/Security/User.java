@@ -27,12 +27,6 @@ public class User {
     private Set<Goals> goals = new HashSet<>();
 
     @OneToMany(targetEntity = Workouts.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
-//    @JoinTable(
-//            name = "users_workouts",
-//            joinColumns = @JoinColumn(
-//                    name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "workouts_id", referencedColumnName = "id"))
     private Set<Workouts> workouts = new HashSet<>();
 
     public User(String firstName, String lastName,
