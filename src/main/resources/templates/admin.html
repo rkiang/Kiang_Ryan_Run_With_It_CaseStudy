@@ -34,13 +34,9 @@
                 <a href="goals" class="nav_link">
                     <img th:src="@{assets/checklist_rtl_white_24dp.svg}" src="../static/assets/checklist_rtl_white_24dp.svg">
                     <span class="nav_name">Goals</span> </a>
-                <a href="exercise" class="nav_link">
-                    <img th:src="@{assets/fitness_center_white_24dp.svg}" src="../static/assets/fitness_center_white_24dp.svg">
-                    <span class="nav_name">Exercises</span> </a>
-                <a href="#" class="nav_link active">
-                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg">
-                    <span class="nav_name">Settings</span>
-                </a>
+                <a href="profile" class="nav_link">
+                    <img th:src="@{assets/account_circle.svg}" src="../static/assets/account_circle.svg"> <span
+                        class="nav_name">Profile</span> </a>
             </div>
         </div>
         <a href="#" class="nav_link" sec:authorize="isAuthenticated()" th:href="@{/logout}">

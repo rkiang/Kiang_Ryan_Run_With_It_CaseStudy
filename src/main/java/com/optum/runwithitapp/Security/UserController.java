@@ -18,14 +18,6 @@ public class UserController {
         this.userRepository = userRepository;
     }
 
-//    @GetMapping("/welcome")
-//    public String testing(Principal principal, Model model) {
-//        User user = userRepository.findByUsername(principal.getName());
-//        model.addAttribute("username", principal.getName());
-//        model.addAttribute("user", user.getUsername());
-//        return "welcome";
-//    }
-
     private UserService userService;
 
     public UserController() {
@@ -42,19 +34,25 @@ public class UserController {
         return "admin";
     }
 
-//    @GetMapping("/accounts/{id}")
-//    public String displayFormUpdates(@PathVariable(value = "id") long id, Model model) {
-//        User user = userService.getUsersById(id);
-//        model.addAttribute("user", user);
-//        return "update_users";
-//    }
-
-    @PostMapping("/updateUser/{id}")
-    public String updateUser(@PathVariable("id") long id, User user, Model model){
-        userService.saveUserInfo(user);
-        return "redirect:/admin";
+    @GetMapping("/profile")
+    public String getUserProfile(Principal principal, Model model){
+        User user = userService.findByEmail(principal.getName());
+        model.addAttribute("listUserProfile", userService.getUserById(user.getId()));
+        return "profile";
     }
 
+    @GetMapping("/profileUpdate/{id}")
+    public String displayFormUpdates(@PathVariable(value = "id") long id, Model model) {
+        User user = userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "redirect:/profile";
+    }
+
+    @PostMapping("/updateUser")
+    public String saveUpdateUser(@ModelAttribute User user){
+        userService.saveUserInfo(user);
+        return "redirect:/profile";
+    }
     @GetMapping("/deleteUser/{id}")
 //    @DeleteMapping("/deleteUser/{id}")
     public String deleteUsers(@PathVariable(value = "id") long id) {

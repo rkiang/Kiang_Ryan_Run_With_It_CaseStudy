@@ -45,6 +45,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    @Override
+    public User getUserById(long id) {
+        User user = userRepository.getById(id);
+        if(user == null){
+            throw new UserNotFoundException();
+        } return userRepository.getById(id);
+    }
+
     public User save(UserRegistrationDto registration){
         User user = new User();
         user.setFirstName(registration.getFirstName());

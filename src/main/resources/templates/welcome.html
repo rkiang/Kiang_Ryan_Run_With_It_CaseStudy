@@ -30,20 +30,16 @@
             <div class="nav_list">
                 <a class="nav_link active">
                     <img th:src="@{assets/home_white_24dp.svg}" src="../static/assets/home_white_24dp.svg">
-                    <span class="nav_name">Home</span>
-                </a>
+                    <span class="nav_name">Home</span></a>
                 <a href="workouts" class="nav_link">
-                    <img th:src="@{assets/run_circle_white_24dp.svg}" src="../static/assets/run_circle_white_24dp.svg"> <span
-                        class="nav_name">Workouts</span> </a>
+                    <img th:src="@{assets/run_circle_white_24dp.svg}" src="../static/assets/run_circle_white_24dp.svg">
+                    <span class="nav_name">Workouts</span> </a>
                 <a href="goals" class="nav_link">
-                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}" src="../static/assets/checklist_rtl_white_24dp.svg"> <span
-                        class="nav_name">Goals</span> </a>
-                <a href="exercise" class="nav_link">
-                    <img th:src="@{assets/fitness_center_white_24dp.svg}" src="../static/assets/fitness_center_white_24dp.svg"> <span class="nav_name">Exercises</span>
-                </a>
-                <a href="admin" class="nav_link">
-                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg"> <span
-                        class="nav_name">Settings</span> </a>
+                    <img th:src="@{assets/checklist_rtl_white_24dp.svg}" src="../static/assets/checklist_rtl_white_24dp.svg">
+                    <span class="nav_name">Goals</span> </a>
+                <a href="profile" class="nav_link">
+                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg">
+                    <span class="nav_name">Profile</span> </a>
             </div>
         </div> <a href="#" class="nav_link">
         <i class='bx bx-log-out nav_icon'></i>
@@ -62,7 +58,8 @@
             <p class="card-text">Select a link below to view your pages.</p>
         <a href="workouts" class="btn btn-primary">Workouts</a>
         <a href="goals" class="btn btn-primary">Goals</a>
-        <a href="exercise" class="btn btn-primary">Exercises</a>
+        <br>
+        <a href="profile" class="btn btn-outline-primary" style="margin-top:5%;">Profile</a>
     </div>
             <a class="btn btn-danger"sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a>
 </div>
