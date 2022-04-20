@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,6 +30,17 @@ public class UserServiceImpl implements UserService {
     public User saveUserInfo(User user){
         return userRepository.save(user);
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteUsersById(long id) {
+        userRepository.deleteById(id);
+    }
+
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
