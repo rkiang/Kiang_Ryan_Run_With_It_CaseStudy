@@ -61,6 +61,7 @@ public class WorkoutsController {
     @GetMapping("/deleteWorkouts/{id}")
     public String deleteWorkouts(@PathVariable(value = "id") long id) {
         this.workoutsService.deleteWorkoutsById(id);
+
         return "redirect:/workouts";
     }
 }

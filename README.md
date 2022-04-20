@@ -5,10 +5,10 @@
   - [Admin Stories](#Admin-Stories)
   - [Stretch Goals](#Stretch-Goals)
 - [Database tables](#DB-Tables)
-- [Technical Architecture](#Techical-Architecture)
+- [Technical Architecture](References/technical_architecture.png)
 - [Technical Challenges](#Technical-Challeneges)
 - [Lessons Learned](#Lessons-Learned)
-- [Wireframes](Kiang_Ryan_Wireframe.pdf)
+- [Wireframes](References/Kiang_Ryan_Wireframe.pdf)
 - [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) (External Site)
   - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Jira account.
 
