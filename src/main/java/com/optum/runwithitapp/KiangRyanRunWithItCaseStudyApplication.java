@@ -1,11 +1,8 @@
 package com.optum.runwithitapp;
 
-import com.optum.runwithitapp.Exercises.ExercisesController;
 import com.optum.runwithitapp.Goals.GoalsController;
-//import com.optum.runwithitapp.Security.UsersController;
 import com.optum.runwithitapp.Security.UserService;
 import com.optum.runwithitapp.Workouts.WorkoutsController;
-import com.optum.runwithitapp.Exercises.ExerciseService;
 import com.optum.runwithitapp.Goals.GoalsService;
 import com.optum.runwithitapp.Workouts.WorkoutsService;
 import org.springframework.boot.SpringApplication;
@@ -18,11 +15,9 @@ public class KiangRyanRunWithItCaseStudyApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(KiangRyanRunWithItCaseStudyApplication.class, args);
 		UserService userService = applicationContext.getBean(UserService.class);
-		ExerciseService exerciseService = applicationContext.getBean(ExerciseService.class);
 		GoalsService goalsService = applicationContext.getBean(GoalsService.class);
 		WorkoutsService workoutsService = applicationContext.getBean(WorkoutsService.class);
 //		UserController usersController = applicationContext.getBean(UserController.class);
-		ExercisesController exerciseController = applicationContext.getBean(ExercisesController.class);
 		GoalsController goalsController = applicationContext.getBean(GoalsController.class);
 		WorkoutsController workoutsController = applicationContext.getBean(WorkoutsController.class);
 		applicationContext.getBean(MainController.class);
@@ -33,13 +28,6 @@ public class KiangRyanRunWithItCaseStudyApplication {
 //		if(usersController!=null){
 //			System.out.println("usersController: " + usersController);
 //		}
-
-		if(exerciseService!=null){
-			System.out.println("exercise: " + exerciseService);
-		}
-		if(exerciseController!=null){
-			System.out.println("exerciseController: "+exerciseController);
-		}
 
 		if(goalsService !=null){
 			System.out.println("userGoalsService: " + goalsService);
