@@ -16,6 +16,10 @@
 
 # Contents:
 ## Daily Progress
+- **April 21st (80-85% complete)
+  - Added final model, all CRUD operations are working.
+  - Working on test units.
+  - Will still need to add custom queries.
 - **April 20th (80-85% complete)**
   - Able to update and delete on controllers.
   - Cannot update successfully for user account yet.
