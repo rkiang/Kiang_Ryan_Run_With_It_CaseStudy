@@ -5,11 +5,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Transactional
 class GoalsServiceImplTest {
 
     @Autowired
@@ -43,6 +45,12 @@ class GoalsServiceImplTest {
 
     @Test
     void getUserGoalsById() {
+        List<Goals> allUserGoals = goalsService.getAllUserGoals();
+        Goals testGoalId = allUserGoals.get(0);
+        if(testGoalId != null){
+            Goals goalsById2 = goalsService.getUserGoalsById(testGoalId.getId());
+            Assertions.assertThat(testGoalId).isEqualTo(goalsById2);
+        }
     }
 
     @Test
