@@ -10,4 +10,6 @@ public interface WorkoutsService {
     Workouts getWorkoutsById(long id);
 
     void deleteWorkoutsById(long id);
+
+    public List<Workouts> getWorkoutsByExerciseName(String exerciseName);
 }
