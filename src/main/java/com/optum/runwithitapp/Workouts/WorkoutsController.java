@@ -3,6 +3,7 @@ package com.optum.runwithitapp.Workouts;
 import com.optum.runwithitapp.Security.User;
 import com.optum.runwithitapp.Security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,20 +12,23 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.List;
 import java.util.Set;
 
 @Controller
 public class WorkoutsController {
     private WorkoutsService workoutsService;
     private UserService userService;
+    private WorkoutsRepository workoutsRepository;
 
     public WorkoutsController() {
     }
 
     @Autowired
-    public WorkoutsController(WorkoutsService workoutsService, UserService userService) {
+    public WorkoutsController(WorkoutsService workoutsService, UserService userService, WorkoutsRepository workoutsRepository) {
         this.workoutsService = workoutsService;
         this.userService = userService;
+        this.workoutsRepository = workoutsRepository;
     }
 
     @GetMapping("/workouts")
@@ -68,5 +72,24 @@ public class WorkoutsController {
         userService.saveUserInfo(user);
         this.workoutsService.deleteWorkoutsById(id);
         return "redirect:/workouts";
+    }
+
+//    @GetMapping("/workouts/{exerciseName}")
+//    public List<Workouts> getWorkoutsByExerciseName(
+//            @PathVariable String exerciseName){
+//        return workoutsService.getWorkoutsByExerciseName(exerciseName);
+//    }
+
+    @GetMapping("/workouts/{exerciseName}")
+    public ResponseEntity getWorkoutsByExerciseName(
+        @PathVariable("exerciseName") String exerciseName){
+    List<Workouts> workouts;
+    if(exerciseName != null){
+        workouts = workoutsRepository.findByExerciseName(exerciseName);
+        if(workouts.isEmpty()){
+            return ResponseEntity.badRequest().body(workouts);
+        } return ResponseEntity.ok(workouts);
+    } workouts = workoutsRepository.findAll();
+    return ResponseEntity.ok(workouts);
     }
 }
