@@ -127,7 +127,9 @@
                         </div>
                         <div class="form-floating">
                             <input field="*{weight}" name="weight" type="number" class="form-control"
-                                   id="floatingInput4" placeholder="Weight">
+                                   id="floatingInput4" placeholder="Weight"
+                                   onchange="(function(el){el.value=parseFloat(el.value).toFixed(2);})(this)" min="0.00" max="1000.00" step="0.01">
+                            >
                             <label for="floatingInput4">Weight</label>
                         </div>
                         <div class="modal-footer">
@@ -144,6 +146,8 @@
         <tr>
             <th>Date</th>
             <th>Weight</th>
+            <th>Edit</th>
+            <td>Delete</td>
         </tr>
         </thead>
         <tbody>
@@ -168,15 +172,16 @@
                                   method="POST">
                                 <div class="col-lg-3 col-sm-6">
                                     <label for="startDate1">Set Date</label>
-                                    <input th:field="*{weightDate}" name="weightDate" id="startDate1" class="form-control"
+                                    <input field="*{weightDate}" name="weightDate" id="startDate1" class="form-control"
                                            type="date"
-                                           value="${profile.weightDate}"/>
+                                           th:value="${profile.weightDate}"/>
                                     <span id="startDateSelected1"></span>
                                 </div>
                                 <div class="form-floating">
-                                    <input th:field="*{weight}" name="weightDate" type="number" class="form-control"
+                                    <input field="*{weight}" name="weight" type="number" class="form-control"
                                            id="floatingInput41" placeholder="Weight"
-                                           value="${profile.weight}">
+                                           th:value="${profile.weight}"
+                                           onchange="(function(el){el.value=parseFloat(el.value).toFixed(2);})(this)" min="0.00" max="1000.00" step="0.01">
                                     <label for="floatingInput41">Weight</label>
                                 </div>
                                 <div class="modal-footer">

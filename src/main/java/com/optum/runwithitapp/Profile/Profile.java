@@ -18,12 +18,12 @@ public class Profile {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
     private Date weightDate;
-    private Long weight;
+    private Float weight;
 
     public Profile() {
     }
 
-    public Profile(Long id, Date weightDate, Long weight) {
+    public Profile(Long id, Date weightDate, Float weight) {
         this.id = id;
         this.weightDate = weightDate;
         this.weight = weight;
@@ -45,11 +45,11 @@ public class Profile {
         this.id = id;
     }
 
-    public Long getWeight() {
+    public Float getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(Float weight) {
         this.weight = weight;
     }
 }
