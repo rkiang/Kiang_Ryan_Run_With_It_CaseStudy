@@ -139,4 +139,34 @@ public class Goals {
     public void setGoalCompleted(Date goalCompleted) {
         this.goalCompleted = goalCompleted;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Goals goals = (Goals) o;
+        return Objects.equals(id, goals.id) && Objects.equals(goalName, goals.goalName) && Objects.equals(status, goals.status) && Objects.equals(goalSet, goals.goalSet) && Objects.equals(goalCompleted, goals.goalCompleted) && Objects.equals(exerciseName, goals.exerciseName) && Objects.equals(exerciseType, goals.exerciseType) && Objects.equals(sets, goals.sets) && Objects.equals(reps, goals.reps) && Objects.equals(weightAmount, goals.weightAmount) && Objects.equals(duration, goals.duration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, goalName, status, goalSet, goalCompleted, exerciseName, exerciseType, sets, reps, weightAmount, duration);
+    }
+
+    @Override
+    public String toString() {
+        return "Goals{" +
+                "id=" + id +
+                ", goalName='" + goalName + '\'' +
+                ", status='" + status + '\'' +
+                ", goalSet=" + goalSet +
+                ", goalCompleted=" + goalCompleted +
+                ", exerciseName='" + exerciseName + '\'' +
+                ", exerciseType='" + exerciseType + '\'' +
+                ", sets=" + sets +
+                ", reps=" + reps +
+                ", weightAmount=" + weightAmount +
+                ", duration=" + duration +
+                '}';
+    }
 }
