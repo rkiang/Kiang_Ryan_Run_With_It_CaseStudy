@@ -1,6 +1,7 @@
 package com.optum.runwithitapp.Security;
 
 import com.optum.runwithitapp.Goals.Goals;
+import com.optum.runwithitapp.Profile.Profile;
 import com.optum.runwithitapp.Workouts.Workouts;
 
 import javax.persistence.*;
@@ -29,16 +30,29 @@ public class User {
     @OneToMany(targetEntity = Workouts.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Workouts> workouts = new HashSet<>();
 
+    @OneToMany(targetEntity = Profile.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Profile> profile = new HashSet<>();
+
     public User(String firstName, String lastName,
                 String email, String password, Set<Goals> goals,
-                Set<Workouts> workouts, Collection<Role> roles) {
+                Set<Workouts> workouts, Set<Profile> profile,
+                Collection<Role> roles) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.goals = goals;
         this.workouts = workouts;
+        this.profile = profile;
         this.roles = roles;
+    }
+
+    public Set<Profile> getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Set<Profile> profile) {
+        this.profile = profile;
     }
 
     public Set<Workouts> getWorkouts() {

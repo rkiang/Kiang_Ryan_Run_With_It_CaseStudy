@@ -34,7 +34,7 @@ public class UserController {
         return "admin";
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/userProfile")
     public String getUserProfile(Principal principal, Model model){
         User user = userService.findByEmail(principal.getName());
         model.addAttribute("listUserProfile", userService.getUserById(user.getId()));
