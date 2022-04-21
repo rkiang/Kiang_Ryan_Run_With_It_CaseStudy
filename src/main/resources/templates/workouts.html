@@ -157,17 +157,21 @@
                                               method="POST">
                                             <div class="col-lg-3 col-sm-6">
                                                 <label for="startDate">Date</label>
-                                                <input field="*{workoutDate}" name="workoutDate" id="startDate2" class="form-control" type="date"/>
+                                                <input field="*{workoutDate}" name="workoutDate" id="startDate2" class="form-control" type="date"
+                                                       th:value="${workouts.workoutDate}"/>
                                                 <span id="startDateSelected2"></span>
                                             </div>
                                             <div class="form-floating">
                                                 <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
-                                                       id="floatingInput101" placeholder="Exercise Name">
+                                                       id="floatingInput101" placeholder="Exercise Name"
+                                                       th:value="${workouts.exerciseName}">
                                                 <label for="floatingInput101">Exercise Name</label>
                                             </div>
                                             <div class="form-floating">
                                                 <select id="floatingType1" class="form-select" aria-label="Default select example"
-                                                        field="*{exerciseType}" name="exerciseType" placeholder="Type">
+                                                        field="*{exerciseType}" name="exerciseType" placeholder="Type"
+                                                        th:value="${workouts.exerciseType}">
+                                                    <option selected th:text="${workouts.exerciseType}"></option>
                                                     <option value="Cardio">Cardio</option>
                                                     <option value="Weights">Weights</option>
                                                 </select>
@@ -175,23 +179,27 @@
                                             </div>
                                             <div class="form-floating">
                                                 <input field="*{sets}" name="sets" type="number" class="form-control"
-                                                       id="floatingInput51" placeholder="Sets">
+                                                       id="floatingInput51" placeholder="Sets"
+                                                       th:value="${workouts.sets}">
                                                 <label for="floatingInput51">Sets</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input field="*{reps}" name="reps" type="number" class="form-control"
-                                                       id="floatingInput61" placeholder="Reps">
+                                                       id="floatingInput61" placeholder="Reps"
+                                                       th:value="${workouts.reps}">
                                                 <label for="floatingInput61">Reps</label>
                                             </div>
                                             <div class="form-floating">
                                                 <input field="*{weightAmount}" name="weightAmount" type="number" class="form-control"
-                                                       id="floatingInput71" placeholder="Weight Amount">
+                                                       id="floatingInput71" placeholder="Weight Amount"
+                                                       th:value="${workouts.weightAmount}">
                                                 <label for="floatingInput71">Weight Amount</label>
                                             </div>
 
                                             <div class="form-floating">
                                                 <input field="*{duration}" name="duration" type="time" class="form-control"
-                                                       id="floatingInput81" placeholder="Duration">
+                                                       id="floatingInput81" placeholder="Duration"
+                                                       th:value="${workouts.duration}">
                                                 <label for="floatingInput81">Duration</label>
                                             </div>
 
