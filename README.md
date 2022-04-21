@@ -4,7 +4,7 @@
 - [User Stories](#User-Stories)
   - [Admin Stories](#Admin-Stories)
   - [Stretch Goals](#Stretch-Goals)
-- [Database tables](#DB-Tables)
+- [Database Schema](References/dbschema.png)
 - [Technical Architecture](References/technical_architecture.png)
 - [Technical Challenges](#Technical-Challeneges)
 - [Lessons Learned](#Lessons-Learned)
@@ -73,31 +73,6 @@
 - [Stretch Goal] As a user, I want a personal account page, so I may edit my username and/or password credentials.
 - [Stretch Goal] As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
 - [Stretch Goal] As a user, I want to export workout days to create events in my Google Calendar, so I may have my schedule with my workout plan.
-
-
-## DB Tables
-#### User Account Table
-| userId<br/>Integer | userName<br/>String | password<br/>String | accessLevel<br/>String |
-|--------------------|---------------------|---------------------|------------------------|
-| 1                  | appOwner            | #hash               | admin                  |
-| 2                  | moderator           | #hash               | moderator              |
-| 3                  | user1               | #hash               | basic                  |
-
-#### User's personal exercise page
-| userId | exerciseName<br/>String | exerciseType<br/>String | completionStatus<br/>boolean | sets<br/>Integer | reps<br/>Integer | duration<br/>Integer | sharedStatus<br/>String | goalSet<br/>Timestamp |
-|--------|-------------------------|-------------------------|------------------------------|------------------|------------------|----------------------|-------------------------|-----------------------|
-| 1      | squats                  | Weights                 | false                        | 3                | 8                | null                 | no                      | 01-02-2022            |
-| 3      | leg press               | Weights                 | true                         | 5                | 8                | null                 | yes                     | 12-21-2021            |
-| 1      | running                 | Cardio                  | false                        | null             | null             | 40                   | yes                     | 02-03-2022            |
-
-
-### Community Exercises' Table
-| exerciseId<br/>Integer | exerciseName<br/>String | exerciseType<br/>String |
-|------------------------|-------------------------|-------------------------|
-| 1                      | deadlift                | weights                 | 
-| 2                      | leg press               | weights                 | 
-| 3                      | biking                  | cardio                  | 
-
 
 ## Technical Architecture
 - Java, JPA
