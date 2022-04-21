@@ -15,8 +15,7 @@ public class Goals {
 
     private String goalName;
 
-    @Column(columnDefinition = "boolean default false")
-    private boolean completion = false;
+    private String status = "In Progress";
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.DATE)
@@ -36,14 +35,13 @@ public class Goals {
     public Goals() {
     }
 
-    public Goals(Long id, String goalName,
-                 boolean completion, Date goalSet,
-                 Date goalCompleted, String exerciseName,
+    public Goals(Long id, String goalName, String status,
+                 Date goalSet, Date goalCompleted, String exerciseName,
                  String exerciseType, Integer sets, Integer reps,
                  Integer weightAmount, Integer duration) {
         this.id = id;
         this.goalName = goalName;
-        this.completion = completion;
+        this.status = status;
         this.goalSet = goalSet;
         this.goalCompleted = goalCompleted;
         this.exerciseName = exerciseName;
@@ -118,12 +116,12 @@ public class Goals {
         this.goalName = goalName;
     }
 
-    public boolean isCompletion() {
-        return completion;
+    public String getStatus() {
+        return status;
     }
 
-    public void setCompletion(boolean completion) {
-        this.completion = completion;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getGoalSet() {

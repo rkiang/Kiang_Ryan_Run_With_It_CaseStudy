@@ -17,11 +17,21 @@
           rel="stylesheet"/>
     <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--    <script type="text/javascript">-->
+<!--        $(document).ready(function() {-->
+<!--            $('#updateStatus').on('change', function() {-->
+<!--            document.forms[myFormName].submit();-->
+<!--            });-->
+<!--        });-->
+
+<!--    </script>-->
 </head>
 <body id="body-pd">
 <header class="header" id="header">
     <div class="header_toggle"><i class='bx bx-menu' id="header-toggle" style="color:#ffff;"></i></div>
-    <img th:src="@{assets/Run With It-logos_transparent-cut.png}" src="../static/assets/Run With It-logos_transparent-cut.png"
+    <img th:src="@{assets/Run With It-logos_transparent-cut.png}"
+         src="../static/assets/Run With It-logos_transparent-cut.png"
          id="logo"
          alt="Run With It">
 </header>
@@ -42,7 +52,8 @@
                     <span class="nav_name">Goals</span> </a>
 
                 <a href="profile" class="nav_link">
-                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}" src="../static/assets/admin_panel_settings_white_24dp.svg">
+                    <img th:src="@{assets/admin_panel_settings_white_24dp.svg}"
+                         src="../static/assets/admin_panel_settings_white_24dp.svg">
                     <span class="nav_name">Profile</span> </a>
             </div>
         </div>
@@ -133,7 +144,8 @@
         <tr>
             <th>Name</th>
             <th>Set Date</th>
-            <th>Completed</th>
+            <th>Status</th>
+            <th>Completed Date</th>
             <th>Exercise Name</th>
             <th>Type</th>
             <th>Sets</th>
@@ -148,7 +160,7 @@
         <tr th:each="goals : ${listGoals}">
             <td th:text="${goals.goalName}"></td>
             <td th:text="${goals.goalSet}"></td>
-            <td th:text="${goals.completion}"></td>
+            <td th:text="${goals.status}"></td>
             <td th:text="${goals.goalCompleted}"></td>
             <td th:text="${goals.exerciseName}"></td>
             <td th:text="${goals.exerciseType}"></td>
@@ -174,22 +186,37 @@
                                   method="POST">
                                 <div class="col-lg-3 col-sm-6">
                                     <label for="startDate1">Set Date</label>
-                                    <input field="*{goalSet}" name="goalSet" id="startDate1" class="form-control" type="date"/>
+                                    <input field="*{goalSet}" name="goalSet" id="startDate1" class="form-control"
+                                           type="date"
+                                           th:value="${goals.goalSet}"/>
                                     <span id="startDateSelected1"></span>
                                 </div>
                                 <div class="form-floating">
+                                    <select id="status" class="form-select" aria-label="Default select example"
+                                            field="*{status}" name="status" placeholder="Type">
+                                        <option selected th:text="${goals.status}"></option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Completed">Completed</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                    <label for="floatingType1">Status</label>
+                                </div>
+                                <div class="form-floating">
                                     <input field="*{goalName}" name="goalName" type="text" class="form-control"
-                                           id="floatingInput41" placeholder="Goal Name">
+                                           id="floatingInput41" placeholder="Goal Name"
+                                            th:value="${goals.goalName}">
                                     <label for="floatingInput41">Goal Name</label>
                                 </div>
                                 <div class="form-floating">
                                     <input field="*{exerciseName}" name="exerciseName" type="text" class="form-control"
-                                           id="floatingInput101" placeholder="Exercise Name">
+                                           id="floatingInput101" placeholder="Exercise Name"
+                                           th:value="${goals.exerciseName}">
                                     <label for="floatingInput101">Exercise Name</label>
                                 </div>
                                 <div class="form-floating">
                                     <select id="floatingType1" class="form-select" aria-label="Default select example"
                                             field="*{exerciseType}" name="exerciseType" placeholder="Type">
+                                        <option selected th:text="${goals.exerciseType}"></option>
                                         <option value="Cardio">Cardio</option>
                                         <option value="Weights">Weights</option>
                                     </select>
@@ -197,31 +224,39 @@
                                 </div>
                                 <div class="form-floating">
                                     <input field="*{sets}" name="sets" type="number" class="form-control"
-                                           id="floatingInput51" placeholder="Sets">
+                                           id="floatingInput51" placeholder="Sets"
+                                           th:value="${goals.sets}">
                                     <label for="floatingInput51">Sets</label>
                                 </div>
                                 <div class="form-floating">
                                     <input field="*{reps}" name="reps" type="number" class="form-control"
-                                           id="floatingInput61" placeholder="Reps">
+                                           id="floatingInput61" placeholder="Reps"
+                                           th:value="${goals.reps}">
                                     <label for="floatingInput61">Reps</label>
                                 </div>
                                 <div class="form-floating">
-                                    <input field="*{weightAmount}" name="weightAmount" type="number" class="form-control"
-                                           id="floatingInput71" placeholder="Weight Amount">
+                                    <input field="*{weightAmount}" name="weightAmount" type="number"
+                                           class="form-control"
+                                           id="floatingInput71" placeholder="Weight Amount"
+                                           th:value="${goals.weightAmount}">
                                     <label for="floatingInput71">Weight Amount</label>
                                 </div>
 
                                 <div class="form-floating">
                                     <input field="*{duration}" name="duration" type="number" class="form-control"
-                                           id="floatingInput81" placeholder="Duration">
+                                           id="floatingInput81" placeholder="Duration"
+                                           th:value="${goals.duration}">
                                     <label for="floatingInput81">Duration</label>
                                 </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <label for="endDate1">Expected Completion Date</label>
-                                    <input field="*{goalCompleted}" name="goalCompleted" id="endDate1" class="form-control"
-                                           type="date"/>
+                                    <input field="*{goalCompleted}" name="goalCompleted" id="endDate1"
+                                           class="form-control"
+                                           type="date"
+                                           th:value="${goals.goalCompleted}"/>
                                     <span id="endDateSelected1"></span>
-                                </div>                                <div class="modal-footer">
+                                </div>
+                                <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard
                                         Changes
                                     </button>
