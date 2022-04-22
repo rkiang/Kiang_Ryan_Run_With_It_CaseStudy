@@ -41,20 +41,24 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/profileUpdate/{id}")
-    public String displayFormUpdates(@PathVariable(value = "id") long id, Model model) {
+    @GetMapping("/profileUpdate/{email}")
+    public String displayFormUpdates(@PathVariable(value = "email") long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "redirect:/profile";
+        return "redirect:/user";
     }
 
-    @PostMapping("/updateUser")
-    public String saveUpdateUser(@ModelAttribute User user){
+    /*Updates user info (not password) on user page, edit form*/
+    @PostMapping("/updateUser/{id}")
+    public String saveUpdateUser(@PathVariable("id") long id,
+                                 @ModelAttribute User user){
         userService.saveUserInfo(user);
-        return "redirect:/profile";
+        return "redirect:/user";
     }
+
+
+    /*Admin only function to delete user accounts on admin page*/
     @GetMapping("/deleteUser/{id}")
-//    @DeleteMapping("/deleteUser/{id}")
     public String deleteUsers(@PathVariable(value = "id") long id) {
         this.userService.deleteUsersById(id);
         return "redirect:/admin";
