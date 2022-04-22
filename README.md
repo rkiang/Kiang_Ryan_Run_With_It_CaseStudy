@@ -11,6 +11,8 @@
 - [Wireframes](References/Kiang_Ryan_Wireframe.pdf)
 - [Jira](https://rkiang.atlassian.net/jira/software/projects/RUN/boards/1) (External Site)
   - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Jira account.
+- [Case Study Rubics](https://docs.google.com/document/d/1xvXC5AlyGPZDn9rpW9A-ZB7KM-tPEX3E_AEppKxE8xk/edit) (External Site)
+  - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Google Document.
 
 ### Application will be a fitness tracking utility application.
 
