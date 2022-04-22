@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,6 +33,7 @@ public class WorkoutsController {
         this.workoutsRepository = workoutsRepository;
     }
 
+    /*Gets all workout information after finding user by email*/
     @GetMapping("/workouts")
     public String getAllWorkouts(Principal principal, Model model) {
         User user = userService.findByEmail(principal.getName());
@@ -41,11 +44,7 @@ public class WorkoutsController {
         return "workouts";
     }
 
-//    @GetMapping("/showWorkouts")
-//    public String showWorkoutForm(Model model){
-//        return "workouts";
-//    }
-
+    /*Users can create workout entries*/
     @PostMapping("/createWorkouts/{email}")
     public String saveNewWorkouts(@PathVariable("email") String email,
                                   @ModelAttribute("workouts") Workouts workouts) {
@@ -56,6 +55,7 @@ public class WorkoutsController {
         return "redirect:/workouts";
     }
 
+    /*Users can update their workout entries*/
     @PostMapping("/updateWorkouts/{id}")
     public String updateWorkouts(@PathVariable("id") long id, Workouts workouts,
                                  Model model) {
@@ -63,6 +63,7 @@ public class WorkoutsController {
         return "redirect:/workouts";
     }
 
+    /*Users can delete their exercises*/
     @GetMapping("/deleteWorkouts/{id}")
     public String deleteWorkouts(@PathVariable(value = "id") long id, Principal principal) {
         User user = userService.findByEmail(principal.getName());
@@ -74,22 +75,20 @@ public class WorkoutsController {
         return "redirect:/workouts";
     }
 
-//    @GetMapping("/workouts/{exerciseName}")
-//    public List<Workouts> getWorkoutsByExerciseName(
-//            @PathVariable String exerciseName){
-//        return workoutsService.getWorkoutsByExerciseName(exerciseName);
-//    }
 
+    /*Query for finding exercises entry by name*/
     @GetMapping("/workouts/{exerciseName}")
     public ResponseEntity getWorkoutsByExerciseName(
-        @PathVariable("exerciseName") String exerciseName){
-    List<Workouts> workouts;
-    if(exerciseName != null){
-        workouts = workoutsRepository.findByExerciseName(exerciseName);
-        if(workouts.isEmpty()){
-            return ResponseEntity.badRequest().body(workouts);
-        } return ResponseEntity.ok(workouts);
-    } workouts = workoutsRepository.findAll();
-    return ResponseEntity.ok(workouts);
+            @PathVariable("exerciseName") String exerciseName) {
+        List<Workouts> workouts;
+        if (exerciseName != null) {
+            workouts = workoutsRepository.findByExerciseName(exerciseName);
+            if (workouts.isEmpty()) {
+                return ResponseEntity.badRequest().body(workouts);
+            }
+            return ResponseEntity.ok(workouts);
+        }
+        workouts = workoutsRepository.findAll();
+        return ResponseEntity.ok(workouts);
     }
 }
