@@ -18,6 +18,12 @@
 
 # Contents:
 ## Daily Progress
+- **April 22nd (85-90% complete)
+  - Added user account page, access only from profile page.
+  - More Junit testing was done.
+  - Error pages were re-added.
+  - Need to fix user account update from deleting join table.
+  - Need to finish custom queries.
 - **April 21st (80-85% complete)
   - Added final model, all CRUD operations are working.
   - Working on test units.
