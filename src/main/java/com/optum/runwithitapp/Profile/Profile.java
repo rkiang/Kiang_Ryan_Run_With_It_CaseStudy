@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -51,5 +52,27 @@ public class Profile {
 
     public void setWeight(Float weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Profile profile = (Profile) o;
+        return Objects.equals(id, profile.id) && Objects.equals(weightDate, profile.weightDate) && Objects.equals(weight, profile.weight);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, weightDate, weight);
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "id=" + id +
+                ", weightDate=" + weightDate +
+                ", weight=" + weight +
+                '}';
     }
 }
