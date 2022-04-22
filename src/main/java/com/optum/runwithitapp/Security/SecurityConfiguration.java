@@ -27,6 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/css/**",
                         "/img/**",
                         "/webjars/**").permitAll()
+                .antMatchers("/admin").hasAnyRole("ADMIN")
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

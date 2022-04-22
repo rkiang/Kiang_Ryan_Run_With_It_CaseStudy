@@ -50,11 +50,14 @@
                     <img th:src="@{assets/checklist_rtl_white_24dp.svg}"
                          src="../static/assets/checklist_rtl_white_24dp.svg">
                     <span class="nav_name">Goals</span> </a>
-
-                <a href="profile" class="nav_link">
+                <a href="#" class="nav_link">
+                    <img th:src="@{assets/user-circle.svg}"
+                         src="../static/assets/user-circle.svg">
+                    <span class="nav_name">Profile</span> </a>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="admin" class="nav_link">
                     <img th:src="@{assets/admin_panel_settings_white_24dp.svg}"
                          src="../static/assets/admin_panel_settings_white_24dp.svg">
-                    <span class="nav_name">Profile</span> </a>
+                    <span class="nav_name">Admin Setting</span> </a>
             </div>
         </div>
         <a href="#" class="nav_link" sec:authorize="isAuthenticated()" th:href="@{/logout}">

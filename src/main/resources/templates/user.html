@@ -37,9 +37,13 @@
                          src="../static/assets/checklist_rtl_white_24dp.svg">
                     <span class="nav_name">Goals</span> </a>
                 <a href="#" class="nav_link active">
+                    <img th:src="@{assets/user-circle.svg}"
+                         src="../static/assets/user-circle.svg">
+                    <span class="nav_name">Profile</span> </a>
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="admin" class="nav_link">
                     <img th:src="@{assets/admin_panel_settings_white_24dp.svg}"
                          src="../static/assets/admin_panel_settings_white_24dp.svg">
-                    <span class="nav_name">Profile</span> </a>
+                    <span class="nav_name">Admin Setting</span> </a>
             </div>
         </div>
         <a href="#" class="nav_link" sec:authorize="isAuthenticated()" th:href="@{/logout}">
@@ -48,6 +52,9 @@
 </div>
 <!--Container Main start-->
 <div class="height-100 bg-light" style="background-color: transparent !important; margin-top:8%">
+    <div sec:authorize="hasRole('ROLE_ADMIN')">
+        <h1>You are an Admin.</h1>
+    </div>
     <div style="margin-bottom: 25px;">
         <a href="profile" type="button" class="btn btn-primary btn-lg">Return to Profile Page</a>
     </div>
@@ -100,7 +107,10 @@
                                            th:value="${user.lastName}">
                                     <label for="floatingInput10">Last Name</label>
                                 </div>
-                                <input type="hidden" fieid="*{password}" name="password" th:value="${user.password}">
+                                <div hidden>
+                                <input type="hidden" field="*{password}" name="password" th:value="${user.password}">
+                                <input type="number" field="*{id}" name="id" th:value="${user.id}">
+                                </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Discard
                                         Changes
