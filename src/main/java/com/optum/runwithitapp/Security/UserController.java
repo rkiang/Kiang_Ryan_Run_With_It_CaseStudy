@@ -34,11 +34,11 @@ public class UserController {
         return "admin";
     }
 
-    @GetMapping("/userProfile")
+    @GetMapping("/user")
     public String getUserProfile(Principal principal, Model model){
         User user = userService.findByEmail(principal.getName());
         model.addAttribute("listUserProfile", userService.getUserById(user.getId()));
-        return "profile";
+        return "user";
     }
 
     @GetMapping("/profileUpdate/{id}")
