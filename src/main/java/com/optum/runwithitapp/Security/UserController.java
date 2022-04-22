@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.HashSet;
 
 @Controller
 public class UserController {
@@ -51,8 +52,10 @@ public class UserController {
     /*Updates user info (not password) on user page, edit form*/
     @PostMapping("/updateUser/{id}")
     public String saveUpdateUser(@PathVariable("id") long id,
-                                 @ModelAttribute User user){
+                                 @ModelAttribute User user, Model model){
+        System.out.println("BEFORE UPDATE!!!!!!");
         userService.saveUserInfo(user);
+        System.out.println("AFTER UPDATE!!!!!!!");
         return "redirect:/user";
     }
 
