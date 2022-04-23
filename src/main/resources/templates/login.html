@@ -53,7 +53,7 @@
 </div>
 <div>
   <!--        <h4>Main Components</h4>-->
-  <div id="login" class="card float-xl-none border-danger mb-3"
+  <div sec:authorize="isAnonymous()" id="login" class="card float-xl-none border-danger mb-3"
        style="width: 18rem; margin-top: 12%; margin-left: 37%; position:absolute;">
     <div class="card-body">
       <h5 class="card-title">Login</h5>
@@ -87,6 +87,25 @@
 
       <div class="row mb-3">
         <a th:href="@{/registration}" href="/" class="btn btn-link">Create a new account</a>
+      </div>
+    </div>
+  </div>
+
+  <!--Thymeleaf If logged in authenticated-->
+  <div>
+    <div sec:authorize="isAuthenticated()" class="card float-xl-none border-danger mb-3"
+         style="width: 18rem; margin-top: 12%; margin-left: 37%; position:absolute;">
+      <div class="card-body text-center">
+        <h5 class="card-title">Welcome <span sec:authentication="principal.username">com.optum.runwithitapp.Security.User</span></h5>
+        <p class="card-text">Select a link below to view your pages.</p>
+        <a href="workouts" class="btn btn-primary">Workouts</a>
+        <a href="goals" class="btn btn-primary">Goals</a>
+        <br>
+        <a href="profile" class="btn btn-outline-primary" style="margin-top:5%;">Profile</a>
+        <div class="mx-auto">
+          <a style="margin-top:10%;" class="btn btn-danger" sec:authorize="isAuthenticated()" th:href="@{/logout}">
+            <i class='bx bx-log-out nav_icon'></i> Sign Out</a>
+        </div>
       </div>
     </div>
   </div>
