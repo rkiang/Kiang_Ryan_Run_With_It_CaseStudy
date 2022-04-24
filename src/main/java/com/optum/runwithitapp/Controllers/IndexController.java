@@ -16,10 +16,5 @@ public class IndexController {
         return "registration";
     }
 
-    @GetMapping("/welcome")
-    public String welcomePage(){
-        return "welcome";
-    }
-
 
 }

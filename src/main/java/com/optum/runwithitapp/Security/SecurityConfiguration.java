@@ -28,11 +28,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/img/**",
                         "/webjars/**").permitAll()
                 .antMatchers("/admin").hasAnyRole("ADMIN")
+                .antMatchers("/deleteUser/**").hasAnyRole("ADMIN")
+
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/welcome")
+                .defaultSuccessUrl("/login")
                 .loginPage("/login").permitAll()
                 .and()
                 .logout()
