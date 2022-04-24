@@ -29,25 +29,6 @@ public class KiangRyanRunWithItCaseStudyApplication {
         applicationContext.getBean(ProfileService.class);
         applicationContext.getBean(ProfileController.class);
 
-        if (userService != null) {
-            System.out.println("userService: " + userService);
-        }
-//		if(usersController!=null){
-//			System.out.println("usersController: " + usersController);
-//		}
-
-        if (goalsService != null) {
-            System.out.println("userGoalsService: " + goalsService);
-        }
-        if (goalsController != null) {
-            System.out.println("userGoalsController: " + goalsController);
-        }
-        if (workoutsService != null) {
-            System.out.println("workoutsService: " + workoutsService);
-        }
-        if (workoutsController != null) {
-            System.out.println("workoutsController: " + workoutsController);
-        }
     }
 
 
