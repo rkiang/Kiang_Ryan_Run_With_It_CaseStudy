@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Transactional
@@ -31,6 +31,8 @@ class GoalsServiceImplTest {
         testGoals.setReps(5);
         testGoals.setWeightAmount(42);
         testGoals.setDuration(72);
+        testGoals.setGoalSet(new Date(2022, 1, 3));
+        testGoals.setGoalCompleted(new Date(1999, 10, 20));
         goalsService.saveUserGoals(testGoals);
         int sizeAfterAddingEntries = goalsService.getAllUserGoals().size();
 
