@@ -11,4 +11,5 @@ public interface WorkoutsService {
 
     void deleteWorkoutsById(long id);
 
+    public List<Workouts> getWorkoutsByExerciseName(String exerciseName);
 }

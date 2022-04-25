@@ -18,6 +18,10 @@
 
 # Contents:
 ## Daily Progress
+- **April 25th (95-100% complete)
+  - Cleaned up front-end pages.
+  - Commenting code with notes.
+  - SQL file will load on first build and checks if exists too.
 - **April 22nd (85-90% complete)
   - Added user account page, access only from profile page.
   - More Junit testing was done.

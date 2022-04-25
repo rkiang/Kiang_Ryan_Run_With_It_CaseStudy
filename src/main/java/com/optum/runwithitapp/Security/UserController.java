@@ -53,9 +53,7 @@ public class UserController {
     @PostMapping("/updateUser/{id}")
     public String saveUpdateUser(@PathVariable("id") long id,
                                  @ModelAttribute User user, Model model){
-        System.out.println("BEFORE UPDATE!!!!!!");
         userService.saveUserInfo(user);
-        System.out.println("AFTER UPDATE!!!!!!!");
         return "redirect:/user";
     }
 

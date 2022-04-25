@@ -36,22 +36,11 @@ public class GoalsController {
         return "goals";
     }
 
-//    @GetMapping("/showGoals")
-//    public String showUserGoalsForm(Principal principal,
-//                                    Model model){
-//        User user = userRepository.findByEmail(principal.getName());
-//        model.addAttribute("username", principal.getName());
-//        Goals goals = new Goals();
-//        model.addAttribute("goals", goals);
-//        return "goals";
-//    }
-
     @PostMapping("/createGoals/{email}")
     public String saveNewGoals(@PathVariable("email") String email,
                                    @ModelAttribute("goals") Goals goals){
         goalsService.saveUserGoals(goals);
         User user = userService.findByEmail(email);
-//        System.out.println("EMAIL!!!!!!!:"+email);
         user.getGoals().add(goals);
         userService.saveUserInfo(user);
         return "redirect:/goals";
