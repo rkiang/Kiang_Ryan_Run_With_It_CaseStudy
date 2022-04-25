@@ -145,7 +145,7 @@
         </thead>
         <tbody>
         <tr th:each="workouts : ${listWorkouts}">
-            <td th:text="${workouts.workoutDate}"></td>
+            <td th:text="${#dates.format(workouts.workoutDate, 'MM-dd-yyyy')}"></td>
             <td th:text="${workouts.exerciseName}"></td>
             <td th:text="${workouts.exerciseType}"></td>
             <td th:text="${workouts.sets}"></td>
