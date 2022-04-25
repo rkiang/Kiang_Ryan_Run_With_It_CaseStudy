@@ -44,9 +44,4 @@ public class WorkoutsServiceImpl implements WorkoutsService{
         workoutsRepository.deleteById(id);
     }
 
-
-    @Override
-    public List<Workouts> getWorkoutsByExerciseName(String exerciseName) {
-        return workoutsRepository.findByExerciseName(exerciseName);
-    }
 }

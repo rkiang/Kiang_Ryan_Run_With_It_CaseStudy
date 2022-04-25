@@ -76,19 +76,4 @@ public class WorkoutsController {
     }
 
 
-    /*Query for finding exercises entry by name*/
-    @GetMapping("/workouts/{exerciseName}")
-    public ResponseEntity getWorkoutsByExerciseName(
-            @PathVariable("exerciseName") String exerciseName) {
-        List<Workouts> workouts;
-        if (exerciseName != null) {
-            workouts = workoutsRepository.findByExerciseName(exerciseName);
-            if (workouts.isEmpty()) {
-                return ResponseEntity.badRequest().body(workouts);
-            }
-            return ResponseEntity.ok(workouts);
-        }
-        workouts = workoutsRepository.findAll();
-        return ResponseEntity.ok(workouts);
-    }
 }
