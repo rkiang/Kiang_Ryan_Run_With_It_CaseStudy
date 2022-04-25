@@ -59,7 +59,7 @@
   - Overall picture is clearer and coding is easier as I continue.
 
 ## User stories:
-- <strike>As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.</strike>
+- As a user, I want to create and login into a personal account, so I can keep records of my fitness routine.
 - As a user, I want to select which day of the week, so I may add/edit information about my workouts.
 - As a user, I want to create goals to work towards, so I can view the progress over time.
 - As a user, I want to add duration to cardio exercises, so I may view length of time my workouts last.
@@ -70,10 +70,10 @@
 - As a user, I want to add community exercises, so I may quickly add them to my goal or past workouts.
 - As a user, I want to mark goals 'Complete' when achieved, so I can remove the goal as inactive.
 - As a user, I want to edit goals, so I can change parameters if they were initially not ideal.
-- <strike>As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.</strike>
+- As a user, I want to have a cancel/confirm button before submission, so I don't have to delete/edit the submission afterwards.
 - As a user, I want to name/rename my goals, so I can understand my own submissions to my liking.
-- <strike>As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.</strike>
-- <strike>As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.</strike>
+- As a user, I want to create and add custom personal exercise types, so I do not have to add through a community page.
+- As a user, I want a menu on each view, so I may quickly access other pages and a logout button to securely exit the application session.
 
 ## Admin Stories
 - As an Admin user, I want to be able to remove/delete posts in community page, so I can keep the page maintained and less cluttered.
@@ -81,18 +81,17 @@
 - As a moderator user, I want edit options on the community page, so I may maintain the page.
 
 ## Stretch Goals
-- [Stretch Goal] As a user, I want to view a community page with rating system and sort by too, so I may look at top-rated submissions over time.
-- [Stretch Goal] As a user, I want a personal account page, so I may edit my username and/or password credentials.
-- [Stretch Goal] As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
-- [Stretch Goal] As a user, I want to export workout days to create events in my Google Calendar, so I may have my schedule with my workout plan.
-
-## Technical Architecture
-- Java, JPA
-- MySQL
-- JavaScript, Bootstrap
+- As a user, I want to view a community page with rating system and sort by too, so I may look at top-rated submissions over time.
+- As a user, I want a personal account page, so I may edit my username and/or password credentials.
+- As a user, I want to use Google Account, so I can log in without create a new account and use my existing Google account.
+- As a user, I want to export workout days to create events in my Google Calendar, so I may have my schedule with my workout plan.
 
 ## Technical Challenges
 - Creating custom user registration and login.
+- Designing database schema to scale in future implementations.
+- Keeping code DRY on front-end without a framework.
 
 ## Lessons Learned
-- Project management, therefore I can complete tasks in easier and more manageable items
+- Project management, therefore I can complete tasks in easier, smaller and more manageable items.
+- Appreciating unit testing as Test Driven Development.
+- I should have prioritized MVP goals before experimenting with stretch goals. 
