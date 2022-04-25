@@ -168,7 +168,11 @@
         <tr th:each="goals : ${listGoals}">
             <td th:text="${goals.goalName}"></td>
             <td th:text="${goals.goalSet}"></td>
-            <td th:text="${goals.status}"></td>
+            <td>
+                <span th:if="${goals.status == 'Inactive'}" class="badge badge-danger rounded-pill d-inline">Inactive</span>
+                <span th:if="${goals.status == 'Completed'}" class="badge badge-primary rounded-pill d-inline">Completed</span>
+                <span th:if="${goals.status == 'In Progress'}" class="badge badge-success rounded-pill d-inline">In Progress</span>
+            </td>
             <td th:text="${goals.goalCompleted}"></td>
             <td th:text="${goals.exerciseName}"></td>
             <td th:text="${goals.exerciseType}"></td>
