@@ -154,12 +154,15 @@ public class User {
 
     @Override
     public String toString() {
-        return "com.optum.runwithitapp.Security.User{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + "*********" + '\'' +
+                ", password='" + password + '\'' +
+                ", goals=" + goals +
+                ", workouts=" + workouts +
+                ", profile=" + profile +
                 ", roles=" + roles +
                 '}';
     }
