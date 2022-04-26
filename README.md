@@ -1,5 +1,6 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
+- [Install: Getting Setup](#Install:-Getting-Started)
 - [Daily Progress](#Daily-Progress)
 - [User Stories](#User-Stories)
   - [Admin Stories](#Admin-Stories)
@@ -15,6 +16,19 @@
   - Please contatct [Ryan Kiang](mailto:ryanlkiang@gmail.com) to access this Google Document.
 
 ### Application will be a fitness tracking utility application.
+
+## Install: Getting Started
+- Git Clone/Pull Repo.
+- Configure database source and dialect to current environment in the [application.properties](src/main/resources/application.properties) file.
+- Suggested to run "mvn clean install".
+- Build project, then run application.
+- Go to http://localhost:8080/
+  - Notes:
+    - Database will be created if one does not exist with the name "runwithit".
+    - To login as an ADMIN user:
+      - Username: admin@admin.com
+      - Password: admin
+
 
 # Contents:
 ## Daily Progress
