@@ -2,6 +2,7 @@ package com.optum.runwithitapp.Workouts;
 
 import com.optum.runwithitapp.Security.User;
 import com.optum.runwithitapp.Security.UserService;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -76,19 +77,16 @@ public class WorkoutsController {
     }
 
     /*Query for finding exercises entry by name*/
-    @GetMapping("/workouts/{exerciseName}")
-    public ResponseEntity getWorkoutsByExerciseName(
-            @PathVariable("exerciseName") String exerciseName) {
-        List<Workouts> workouts;
-        if (exerciseName != null) {
-            workouts = workoutsRepository.findByExerciseName(exerciseName);
-            if (workouts.isEmpty()) {
-                return ResponseEntity.badRequest().body(workouts);
-            }
-            return ResponseEntity.ok(workouts);
+    @PostMapping("/searchWorkouts")
+    public String searchWorkouts(@ModelAttribute Workouts workouts, Model model){
+        Set<Workouts> workoutsSet = new HashSet<>();
+
+        if(!workouts.getQueryName().isEmpty()){
+            String name = workouts.getQueryName();
+            workoutsSet.addAll(workoutsService.getWorkoutsByExerciseName(name));
         }
-        workouts = workoutsRepository.findAll();
-        return ResponseEntity.ok(workouts);
+        model.addAttribute("listWorkouts", workoutsSet);
+        return "workouts";
     }
 
 }

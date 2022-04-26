@@ -28,6 +28,16 @@ public class Workouts {
     @Temporal(TemporalType.TIME)
     private Date duration;
 
+    private String queryName;
+
+    public String getQueryName() {
+        return queryName;
+    }
+
+    public void setQueryName(String queryName) {
+        this.queryName = queryName;
+    }
+
     public Workouts() {
     }
 

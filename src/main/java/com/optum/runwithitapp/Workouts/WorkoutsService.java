@@ -1,5 +1,6 @@
 package com.optum.runwithitapp.Workouts;
 
+import java.util.Date;
 import java.util.List;
 
 public interface WorkoutsService {
@@ -11,5 +12,5 @@ public interface WorkoutsService {
 
     void deleteWorkoutsById(long id);
 
-    public List<Workouts> getWorkoutsByExerciseName(String exerciseName);
+    List<Workouts> getWorkoutsByExerciseName(String suffix);
 }

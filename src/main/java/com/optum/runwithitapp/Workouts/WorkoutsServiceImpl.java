@@ -3,6 +3,7 @@ package com.optum.runwithitapp.Workouts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -45,8 +46,7 @@ public class WorkoutsServiceImpl implements WorkoutsService{
     }
 
     @Override
-    public List<Workouts> getWorkoutsByExerciseName(String exerciseName) {
-        return workoutsRepository.findByExerciseName(exerciseName);
+    public List<Workouts> getWorkoutsByExerciseName(String suffix) {
+        return workoutsRepository.findByExerciseName(suffix);
     }
-
 }

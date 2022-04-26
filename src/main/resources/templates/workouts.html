@@ -66,6 +66,18 @@
         <h3>Enter exercises to keep track of your workouts</h3>
     </div>
     <!--    Main Components-->
+<!--    <div class="float-lg-end d-print-inline">-->
+<!--        <form name="findByName" th:action="@{searchWorkouts}" th:object="${workouts}" method="POST">-->
+<!--            <div class="form-floating">-->
+<!--                <input type="text" placeholder="Exercise Name"-->
+<!--                       field="*{queryName}" name="queryName" class="form-control"-->
+<!--                       id="floatingInput22"/>-->
+<!--                <label for="floatingInput22">Exercise Name</label>-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary">Search</button>-->
+<!--            <button th:href="workouts" class="btn btn-outline-primary">Clear Search</button>-->
+<!--        </form>-->
+<!--    </div>-->
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Workouts
     </button>
@@ -96,7 +108,6 @@
                                 <option value="Cardio">Cardio</option>
                                 <option value="Weights">Weights</option>
                             </select>
-                            <!--                                <input field="*{exerciseType}" name="exerciseType" type="text" class="form-control" id="floatingType" placeholder="Type">-->
                             <label for="floatingType">Type</label>
                         </div>
                         <div class="form-floating">
@@ -117,7 +128,7 @@
 
                         <div class="form-floating">
                             <input field="*{duration}" name="duration" type="time" class="form-control"
-                                   id="floatingInput8" placeholder="Duration" step="1" value = '00:00'>
+                                   id="floatingInput8" placeholder="Duration">
                             <label for="floatingInput8">Duration</label>
                         </div>
                         <div class="modal-footer">

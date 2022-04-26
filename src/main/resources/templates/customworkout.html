@@ -61,9 +61,10 @@
 <!--Container Main start-->
 <div class="height-100 bg-light" style="background-color: transparent !important; margin-top:8%">
   <div>
-    <form name="customQuery" th:action="@{workouts/{exerciseName}">
-        <input type="text" placeholder="Exercise Name" id="exerciseName"
-               th:field="*{exerciseName}"/>
+    <form name="findByDate" th:action="@{searchDate}" th:object="${workouts}" method="POST">
+        <input type="Date" placeholder="Workout Date" id="findByDate"
+               th:field="*{queryDate}"/>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
   </div>
 
