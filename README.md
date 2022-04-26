@@ -1,6 +1,6 @@
 # Kiang_Ryan_Run_With_It_CaseStudy
 
-- [Install: Getting Setup](#Install:-Getting-Started)
+- [Install: Getting Setup](#Install-Getting-Started)
 - [Daily Progress](#Daily-Progress)
 - [User Stories](#User-Stories)
   - [Admin Stories](#Admin-Stories)
