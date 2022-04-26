@@ -1,5 +1,7 @@
 package com.optum.runwithitapp.Workouts;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,8 @@ import java.util.List;
 public class WorkoutsServiceImpl implements WorkoutsService{
 
     private WorkoutsRepository workoutsRepository;
+
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Autowired
     public WorkoutsServiceImpl(WorkoutsRepository workoutsRepository) {
@@ -24,6 +28,7 @@ public class WorkoutsServiceImpl implements WorkoutsService{
     @Override
     public void saveWorkouts(Workouts workouts) {
         workoutsRepository.save(workouts);
+        LOGGER.info("!!!DATA FROM WORKOUTS TO DATABASE!!!");
 
     }
 

@@ -3,6 +3,8 @@ package com.optum.runwithitapp.Workouts;
 import com.optum.runwithitapp.Security.User;
 import com.optum.runwithitapp.Security.UserService;
 import org.hibernate.jdbc.Work;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,8 @@ public class WorkoutsController {
     private UserService userService;
     private WorkoutsRepository workoutsRepository;
 
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
+
     public WorkoutsController() {
     }
 
@@ -42,6 +46,9 @@ public class WorkoutsController {
         Workouts workouts = new Workouts();
         model.addAttribute("workouts", workouts);
         model.addAttribute("listWorkouts", user.getWorkouts());
+
+        LOGGER.info("!!!DATA FROM WORKOUTS LIST!!!");
+
         return "workouts";
     }
 
