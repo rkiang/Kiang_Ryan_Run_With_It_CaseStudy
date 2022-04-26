@@ -25,6 +25,7 @@ public class ProfileController {
         this.userService = userService;
     }
 
+    /*Retrieves user's profile info by searching for the logged in username/email. */
     @GetMapping("/profile")
     public String getProfile(Principal principal, Model model){
         User user = userService.findByEmail(principal.getName());
@@ -35,6 +36,7 @@ public class ProfileController {
         return "profile";
     }
 
+    /*Allows user to post to profile page.*/
     @PostMapping("/createProfile/{email}")
     public String saveNewProfile(@PathVariable("email") String email,
                                  @ModelAttribute("profile") Profile profile){

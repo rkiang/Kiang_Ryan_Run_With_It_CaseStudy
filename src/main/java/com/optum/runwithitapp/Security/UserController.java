@@ -29,12 +29,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    /*admin allows admin users to view all users*/
     @GetMapping("/admin")
     public String getAllUsers(Model model) {
         model.addAttribute("listUsers", userService.getAllUsers());
         return "admin";
     }
 
+    /*Gets user by email during session and returns their info*/
     @GetMapping("/user")
     public String getUserProfile(Principal principal, Model model){
         User user = userService.findByEmail(principal.getName());
@@ -42,6 +44,7 @@ public class UserController {
         return "user";
     }
 
+    /*Ability for each user to view their own user data when logged in*/
     @GetMapping("/profileUpdate/{email}")
     public String displayFormUpdates(@PathVariable(value = "email") long id, Model model) {
         User user = userService.getUserById(id);

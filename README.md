@@ -18,17 +18,18 @@
 
 # Contents:
 ## Daily Progress
-- **April 25th (95-100% complete)
+- **April 25th (95-100% complete)**
   - Cleaned up front-end pages.
+  - Updated grading rubric.
   - Commenting code with notes.
   - SQL file will load on first build and checks if exists too.
-- **April 22nd (85-90% complete)
+- **April 22nd (85-90% complete)**
   - Added user account page, access only from profile page.
   - More Junit testing was done.
   - Error pages were re-added.
   - Need to fix user account update from deleting join table.
   - Need to finish custom queries.
-- **April 21st (80-85% complete)
+- **April 21st (80-85% complete)**
   - Added final model, all CRUD operations are working.
   - Working on test units.
   - Will still need to add custom queries.
