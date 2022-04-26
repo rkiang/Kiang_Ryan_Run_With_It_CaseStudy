@@ -127,9 +127,9 @@
                         </div>
 
                         <div class="form-floating">
-                            <input field="*{duration}" name="duration" type="time" class="form-control"
-                                   id="floatingInput8" placeholder="Duration">
-                            <label for="floatingInput8">Duration</label>
+                            <input field="*{duration}" name="duration" type="number" class="form-control"
+                                   id="floatingInput8" placeholder="Duration (Minutes)">
+                            <label for="floatingInput8">Duration (Minutes)</label>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -224,10 +224,10 @@
                                 </div>
 
                                 <div class="form-floating">
-                                    <input field="*{duration}" name="duration" type="time" class="form-control"
-                                           id="floatingInput81" placeholder="Duration" step="1"
+                                    <input field="*{duration}" name="duration" type="number" class="form-control"
+                                           id="floatingInput81" placeholder="Duration (Minutes)"
                                            th:value="${workouts.duration}">
-                                    <label for="floatingInput81">Duration</label>
+                                    <label for="floatingInput81">Duration (Minutes)</label>
                                 </div>
 
                                 <div class="modal-footer">

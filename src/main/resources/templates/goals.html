@@ -129,8 +129,8 @@
 
                         <div class="form-floating">
                             <input field="*{duration}" name="duration" type="number" class="form-control"
-                                   id="floatingInput8" placeholder="Duration" step="1" value = '00:00'>
-                            <label for="floatingInput8">Duration</label>
+                                   id="floatingInput8" placeholder="Duration (Minutes)">
+                            <label for="floatingInput8">Duration (Minutes)</label>
                         </div>
                         <div class="col-lg-3 col-sm-6">
                             <label for="endDate">Expected Completion Date</label>
@@ -256,9 +256,10 @@
 
                                 <div class="form-floating">
                                     <input field="*{duration}" name="duration" type="number" class="form-control"
-                                           id="floatingInput81" placeholder="Duration" step="1"
+                                           id="floatingInput81" placeholder="Duration (Minutes)"
+
                                            th:value="${goals.duration}">
-                                    <label for="floatingInput81">Duration</label>
+                                    <label for="floatingInput81">Duration (Minutes)</label>
                                 </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <label for="endDate1">Expected Completion Date</label>

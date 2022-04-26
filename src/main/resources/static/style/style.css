@@ -247,9 +247,3 @@ a {
   border: 1px solid #ccc;
   border-top: none;
 }
-
-/*Time inputs: removes AM/PM*/
-/*
-input[type=time]::-webkit-datetime-edit-ampm-field {
-display: none;
-}*/

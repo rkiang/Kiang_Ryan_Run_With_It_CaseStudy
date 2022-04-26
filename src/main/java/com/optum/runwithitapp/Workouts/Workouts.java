@@ -24,9 +24,8 @@ public class Workouts {
     private Integer sets;
     private Integer reps;
     private Integer weightAmount;
-    @DateTimeFormat(pattern = "HH:mm")
-    @Temporal(TemporalType.TIME)
-    private Date duration;
+
+    private Integer duration;
 
     private String queryName;
 
@@ -45,7 +44,7 @@ public class Workouts {
                     Date workoutDate, String exerciseName,
                     String exerciseType, Integer sets,
                     Integer reps, Integer weightAmount,
-                    Date duration) {
+                    Integer duration) {
         this.id = id;
         this.workoutDate = workoutDate;
         this.exerciseName = exerciseName;
@@ -112,11 +111,11 @@ public class Workouts {
         this.weightAmount = weightAmount;
     }
 
-    public Date getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(Integer duration) {
         this.duration = duration;
     }
 
