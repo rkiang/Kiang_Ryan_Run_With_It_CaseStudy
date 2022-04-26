@@ -66,18 +66,18 @@
         <h3>Enter exercises to keep track of your workouts</h3>
     </div>
     <!--    Main Components-->
-<!--    <div class="float-lg-end d-print-inline">-->
-<!--        <form name="findByName" th:action="@{searchWorkouts}" th:object="${workouts}" method="POST">-->
-<!--            <div class="form-floating">-->
-<!--                <input type="text" placeholder="Exercise Name"-->
-<!--                       field="*{queryName}" name="queryName" class="form-control"-->
-<!--                       id="floatingInput22"/>-->
-<!--                <label for="floatingInput22">Exercise Name</label>-->
-<!--            </div>-->
-<!--            <button type="submit" class="btn btn-primary">Search</button>-->
-<!--            <button th:href="workouts" class="btn btn-outline-primary">Clear Search</button>-->
-<!--        </form>-->
-<!--    </div>-->
+    <div class="float-lg-end d-print-inline">
+        <form name="findByName" th:action="@{searchWorkouts}" th:object="${workouts}" method="POST">
+            <div class="form-floating">
+                <input type="text" placeholder="Exercise Name"
+                       field="*{queryName}" name="queryName" class="form-control"
+                       id="floatingInput22"/>
+                <label for="floatingInput22">Exercise Name</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-rounded">Search</button>
+            <button th:href="workouts" class="btn btn-light btn-rounded">Clear Search</button>
+        </form>
+    </div>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Add Workouts
     </button>
